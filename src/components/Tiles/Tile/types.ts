@@ -5,6 +5,7 @@ export type TileProps = {
   data: SchedulerProjectData;
   zoom: number;
   onTileClick?: (data: SchedulerProjectData) => void;
+  onTileDrop?: (draggedTile: SchedulerProjectData, targetTile: SchedulerProjectData) => void;
 };
 
 export type StyledTextProps = {

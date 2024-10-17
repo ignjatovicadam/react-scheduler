@@ -1,8 +1,10 @@
 import { FC, useCallback } from "react";
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import { Tile } from "..";
 import { PlacedTiles, TilesProps } from "./types";
 
-const Tiles: FC<TilesProps> = ({ data, zoom, onTileClick }) => {
+const Tiles: FC<TilesProps> = ({ data, zoom, onTileClick, onTileDrop }) => {
   const placeTiles = useCallback((): PlacedTiles => {
     let rows = 0;
     return data
@@ -18,14 +20,19 @@ const Tiles: FC<TilesProps> = ({ data, zoom, onTileClick }) => {
               data={project}
               zoom={zoom}
               onTileClick={onTileClick}
+              onTileDrop={onTileDrop}
             />
           ))
         );
       })
       .flat(2);
-  }, [data, onTileClick, zoom]);
+  }, [data, onTileClick, onTileDrop, zoom]);
 
-  return <>{placeTiles()}</>;
+  return (
+    <DndProvider backend={HTML5Backend}>
+      {placeTiles()}
+    </DndProvider>
+  );
 };
 
 export default Tiles;

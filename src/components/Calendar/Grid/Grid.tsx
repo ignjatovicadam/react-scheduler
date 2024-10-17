@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useEffect, useRef } from "react";
+import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import { useTheme } from "styled-components";
 import { drawGrid } from "@/utils/drawGrid/drawGrid";
 import { boxHeight, canvasWrapperId, leftColumnWidth, outsideWrapperId } from "@/constants";
@@ -8,11 +8,13 @@ import { resizeCanvas } from "@/utils/resizeCanvas";
 import { getCanvasWidth } from "@/utils/getCanvasWidth";
 import { GridProps } from "./types";
 import { StyledCanvas, StyledInnerWrapper, StyledSpan, StyledWrapper } from "./styles";
+import { PaginatedSchedulerData, SchedulerProjectData } from "@/types/global";
 
 const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
-  { zoom, rows, data, onTileClick },
+  { zoom, rows, data: initialData, onTileClick },
   ref
 ) {
+  const [data, setData] = useState<PaginatedSchedulerData>(initialData);
   const { handleScrollNext, handleScrollPrev, date, isLoading, cols, startDate } = useCalendar();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const refRight = useRef<HTMLSpanElement>(null);
@@ -77,13 +79,57 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
     return () => observerLeft.disconnect();
   }, [handleScrollPrev]);
 
+  const handleTileDrop = useCallback((draggedTile: SchedulerProjectData, targetTile: SchedulerProjectData) => {
+    setData((prevData) => {
+      const newData = [...prevData];
+      
+      // Find the person and row indices for both tiles
+      let draggedPersonIndex, draggedRowIndex, targetPersonIndex, targetRowIndex;
+      
+      newData.forEach((person, personIndex) => {
+        person.data.forEach((row, rowIndex) => {
+          const draggedIndex = row.findIndex(project => project.id === draggedTile.id);
+          const targetIndex = row.findIndex(project => project.id === targetTile.id);
+          
+          if (draggedIndex !== -1) {
+            draggedPersonIndex = personIndex;
+            draggedRowIndex = rowIndex;
+          }
+          if (targetIndex !== -1) {
+            targetPersonIndex = personIndex;
+            targetRowIndex = rowIndex;
+          }
+        });
+      });
+
+      if (draggedPersonIndex !== undefined && draggedRowIndex !== undefined &&
+          targetPersonIndex !== undefined && targetRowIndex !== undefined) {
+        // Remove the dragged tile from its original position
+        const [removedTile] = newData[draggedPersonIndex].data[draggedRowIndex].splice(
+          newData[draggedPersonIndex].data[draggedRowIndex].findIndex(project => project.id === draggedTile.id),
+          1
+        );
+
+        // Insert the dragged tile into the new position
+        newData[targetPersonIndex].data[targetRowIndex].push(removedTile);
+
+        // Sort the tiles in the target row by start date
+        newData[targetPersonIndex].data[targetRowIndex].sort((a, b) => 
+          new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+        );
+      }
+
+      return newData;
+    });
+  }, []);
+
   return (
     <StyledWrapper id={canvasWrapperId}>
       <StyledInnerWrapper ref={ref}>
         <StyledSpan position="left" ref={refLeft} />
         <Loader isLoading={isLoading} position="left" />
         <StyledCanvas ref={canvasRef} />
-        <Tiles data={data} zoom={zoom} onTileClick={onTileClick} />
+        <Tiles data={data} zoom={zoom} onTileClick={onTileClick} onTileDrop={handleTileDrop} />
         <StyledSpan ref={refRight} position="right" />
         <Loader isLoading={isLoading} position="right" />
       </StyledInnerWrapper>
