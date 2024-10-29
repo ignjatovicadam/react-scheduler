@@ -23,7 +23,13 @@ const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick }) => {
 
   const dragStart = (
     event: DragEvent<HTMLButtonElement>,
-    meta: { fromRoom: string; fromSeat: string; id: string; width: number }
+    meta: {
+      fromRoom: string;
+      fromSeat: string;
+      id: string;
+      fromStart: Date;
+      fromEnd: Date;
+    }
   ) => {
     event.dataTransfer.setData("application/json", JSON.stringify(meta));
   };
