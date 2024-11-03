@@ -4,7 +4,7 @@ import { getFocusedDate } from "@/utils/getFocusedDate";
 import { DropZoneProps } from "./types";
 import { StyledDropZone } from "./styles";
 
-const DropZone: FC<DropZoneProps> = ({ topPosition, roomId, seatId, zoom, onItemDrop }) => {
+const DropZone: FC<DropZoneProps> = ({ topPosition, roomId, seatId, zoom, height, onItemDrop }) => {
   const { startDate } = useCalendar();
   const [isDraggedOver, setIsDraggedOver] = useState(false);
 
@@ -34,6 +34,7 @@ const DropZone: FC<DropZoneProps> = ({ topPosition, roomId, seatId, zoom, onItem
   return (
     <StyledDropZone
       isDraggedOver={isDraggedOver}
+      height={height}
       topPosition={topPosition}
       onDragEnter={handleDragEnter}
       onDragLeave={handleDragLeave}
