@@ -18,9 +18,10 @@ export const StyledTileWrapper = styled.button`
 `;
 
 export const StyledTextWrapper = styled.div`
-  margin: 10px 16px;
   position: relative;
+  padding: 0px 15px;
   display: flex;
+  align-items: center;
   font-size: 10px;
   letter-spacing: 0.5px;
   line-height: 12px;

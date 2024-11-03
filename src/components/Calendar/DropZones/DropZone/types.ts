@@ -5,5 +5,6 @@ export type DropZoneProps = {
   roomId: string;
   seatId: string;
   zoom: ZoomLevel;
+  height: number;
   onItemDrop: (from: From, to: To) => void;
 };

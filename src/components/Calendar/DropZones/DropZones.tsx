@@ -14,6 +14,7 @@ const DropZones: FC<DropZonesProps> = ({ data, rowsPerItem, zoom, onItemDrop }) 
         if (seatIndex > 0) pointer += room.seats[seatIndex - 1].data.length;
 
         const topPosition = pointer + rows;
+        const height = seat.data.length;
 
         return (
           <DropZone
@@ -21,6 +22,7 @@ const DropZones: FC<DropZonesProps> = ({ data, rowsPerItem, zoom, onItemDrop }) 
             topPosition={topPosition}
             roomId={room.id}
             seatId={seat.id}
+            height={height}
             zoom={zoom}
             onItemDrop={onItemDrop}
           />
