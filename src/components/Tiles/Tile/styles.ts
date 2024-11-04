@@ -3,7 +3,7 @@ import { leftColumnWidth, tileHeight } from "@/constants";
 import { marginPaddingReset, truncate } from "@/styles";
 import { StyledTextProps } from "./types";
 
-export const StyledTileWrapper = styled.button`
+export const StyledTileWrapper = styled.button<{ ref: React.RefObject<HTMLButtonElement> }>`
   ${marginPaddingReset}
   height: ${tileHeight}px;
   position: absolute;
@@ -15,6 +15,21 @@ export const StyledTileWrapper = styled.button`
   color: ${({ theme }) => theme.colors.textPrimary};
   width: 100%;
   cursor: pointer;
+`;
+
+export const StyledInnerWrapper = styled.div`
+  position: relative;
+`;
+
+export const StyledResizeButton = styled.div`
+  position: absolute;
+  bottom: 10px;
+  right: -5px;
+  background: red;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  cursor: se-resize;
 `;
 
 export const StyledTextWrapper = styled.div`

@@ -8,16 +8,17 @@ const DropZone: FC<DropZoneProps> = ({ topPosition, roomId, seatId, zoom, height
   const { startDate } = useCalendar();
   const [isDraggedOver, setIsDraggedOver] = useState(false);
 
-  const drop = useCallback(
-    (event: React.DragEvent<HTMLDivElement>, room: string, seat: string) => {
+  const onDrop = useCallback(
+    (event: React.DragEvent<HTMLDivElement>) => {
       const item = JSON.parse(event.dataTransfer.getData("application/json"));
       const dropZoneRect = event.currentTarget.getBoundingClientRect();
-
       const position = event.clientX - dropZoneRect.left;
+
       const date = getFocusedDate(startDate, position, zoom, item.fromStart, item.fromEnd);
+
       onItemDrop(item, {
-        toRoom: room,
-        toSeat: seat,
+        toRoom: roomId,
+        toSeat: seatId,
         id: item.id,
         start: date.start,
         end: date.end
@@ -25,11 +26,12 @@ const DropZone: FC<DropZoneProps> = ({ topPosition, roomId, seatId, zoom, height
 
       setIsDraggedOver(false);
     },
-    [zoom, startDate, onItemDrop]
+    [zoom, startDate, onItemDrop, roomId, seatId]
   );
 
   const handleDragEnter = () => setIsDraggedOver(true);
   const handleDragLeave = () => setIsDraggedOver(false);
+  const onDragOver = (e: React.DragEvent<HTMLDivElement>) => e.preventDefault();
 
   return (
     <StyledDropZone
@@ -38,8 +40,8 @@ const DropZone: FC<DropZoneProps> = ({ topPosition, roomId, seatId, zoom, height
       topPosition={topPosition}
       onDragEnter={handleDragEnter}
       onDragLeave={handleDragLeave}
-      onDragOver={(event: React.DragEvent<HTMLDivElement>) => event.preventDefault()}
-      onDrop={(event: React.DragEvent<HTMLDivElement>) => drop(event, roomId, seatId)}
+      onDragOver={onDragOver}
+      onDrop={onDrop}
     />
   );
 };

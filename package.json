@@ -1,6 +1,6 @@
 {
   "name": "two-birds-scheduler",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -15,10 +15,6 @@
     "timeline",
     "calendar"
   ],
-  "author": {
-    "name": "Bitnoise",
-    "url": "https://scheduler.bitnoise.pl/"
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

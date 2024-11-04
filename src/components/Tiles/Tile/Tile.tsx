@@ -4,12 +4,22 @@ import { useCalendar } from "@/context/CalendarProvider";
 import { getDatesRange } from "@/utils/getDatesRange";
 import { getTileProperties } from "@/utils/getTileProperties";
 import { getTileTextColor } from "@/utils/getTileTextColor";
-import { StyledStickyWrapper, StyledText, StyledTextWrapper, StyledTileWrapper } from "./styles";
+import {
+  StyledStickyWrapper,
+  StyledText,
+  StyledTextWrapper,
+  StyledTileWrapper,
+  StyledInnerWrapper,
+  StyledResizeButton
+} from "./styles";
 import { TileProps } from "./types";
+import { useResize } from "./hooks/useResize";
 
-const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick }) => {
-  const { date } = useCalendar();
+const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick, onItemResize }) => {
+  const { date, startDate } = useCalendar();
+  const { colors } = useTheme();
   const datesRange = getDatesRange(date, zoom);
+
   const { y, x, width } = getTileProperties(
     row,
     datesRange.startDate,
@@ -19,25 +29,33 @@ const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick }) => {
     zoom
   );
 
-  const { colors } = useTheme();
+  const { tile, onResize } = useResize({
+    initialWidth: width,
+    startDate,
+    x,
+    zoom,
+    room,
+    seat,
+    id: data.id,
+    onItemResize
+  });
 
-  const dragStart = (
-    event: DragEvent<HTMLButtonElement>,
-    meta: {
-      fromRoom: string;
-      fromSeat: string;
-      id: string;
-      fromStart: Date;
-      fromEnd: Date;
-    }
-  ) => {
-    event.dataTransfer.setData("application/json", JSON.stringify(meta));
+  const onDrag = (event: DragEvent<HTMLButtonElement>) => {
+    const m = {
+      id: data.id,
+      fromRoom: room,
+      fromSeat: seat,
+      fromStart: data.startDate,
+      fromEnd: data.endDate
+    };
+    event.dataTransfer.setData("application/json", JSON.stringify(m));
   };
 
   return (
     <StyledTileWrapper
       draggable={true}
       className="draggable"
+      ref={tile}
       style={{
         left: `${x}px`,
         top: `${y}px`,
@@ -45,21 +63,16 @@ const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick }) => {
         width: `${width}px`,
         color: getTileTextColor(data.bgColor ?? "")
       }}
-      onDragStart={(event) =>
-        dragStart(event, {
-          id: data.id,
-          fromRoom: room,
-          fromSeat: seat,
-          fromStart: data.startDate,
-          fromEnd: data.endDate
-        })
-      }
+      onDragStart={onDrag}
       onClick={() => onTileClick?.(data)}>
-      <StyledTextWrapper>
-        <StyledStickyWrapper>
-          <StyledText bold>{data.title}</StyledText>
-        </StyledStickyWrapper>
-      </StyledTextWrapper>
+      <StyledInnerWrapper>
+        <StyledResizeButton onMouseDown={onResize} />
+        <StyledTextWrapper>
+          <StyledStickyWrapper>
+            <StyledText bold>{data.title}</StyledText>
+          </StyledStickyWrapper>
+        </StyledTextWrapper>
+      </StyledInnerWrapper>
     </StyledTileWrapper>
   );
 };
