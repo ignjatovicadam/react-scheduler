@@ -15,6 +15,7 @@ const DropZone: FC<DropZoneProps> = ({ topPosition, roomId, seatId, zoom, height
 
       const position = event.clientX - dropZoneRect.left;
       const date = getFocusedDate(startDate, position, zoom, item.fromStart, item.fromEnd);
+
       onItemDrop(item, {
         toRoom: room,
         toSeat: seat,

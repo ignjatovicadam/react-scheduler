@@ -17,17 +17,40 @@ function App() {
   });
 
   const { isFullscreen, maxRecordsPerPage } = values;
-
   const [data, setData] = useState<SchedulerData>(mockDataWithSeats);
-
-  const [range, setRange] = useState<ParsedDatesRange>({
+  const [, setRange] = useState<ParsedDatesRange>({
     startDate: new Date(),
     endDate: new Date()
   });
 
-  const handleRangeChange = useCallback((range: ParsedDatesRange) => {
-    setRange(range);
-  }, []);
+  const handleRangeChange = useCallback((range: ParsedDatesRange) => setRange(range), []);
+
+  const onItemResize = (roomId: string, seatId: string, tileId: string, newEndDate: Date) => {
+    setData((prevData) =>
+      prevData.map((room) => {
+        if (room.id === roomId) {
+          return {
+            ...room,
+            seats: room.seats.map((seat) => {
+              if (seat.id === seatId) {
+                return {
+                  ...seat,
+                  data: seat.data.map((tile) => {
+                    if (tile.id === tileId) {
+                      return { ...tile, endDate: newEndDate };
+                    }
+                    return tile;
+                  })
+                };
+              }
+              return seat;
+            })
+          };
+        }
+        return room;
+      })
+    );
+  };
 
   const onItemDrop = (from: From, to: To) => {
     setData((prevData) => {
@@ -76,9 +99,10 @@ function App() {
           onRangeChange={handleRangeChange}
           data={data}
           isLoading={false}
-          onItemDrop={onItemDrop}
           config={{ zoom: 0, maxRecordsPerPage: maxRecordsPerPage, showThemeToggle: true }}
           onItemClick={(data) => console.log("clicked: ", data)}
+          onItemDrop={onItemDrop}
+          onItemResize={onItemResize}
         />
       ) : (
         <StyledSchedulerFrame>
@@ -89,6 +113,7 @@ function App() {
             data={data}
             onItemClick={(data) => console.log("clicked: ", data)}
             onItemDrop={onItemDrop}
+            onItemResize={onItemResize}
           />
         </StyledSchedulerFrame>
       )}

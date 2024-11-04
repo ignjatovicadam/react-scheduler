@@ -2,7 +2,7 @@ import { FC, useCallback } from "react";
 import { Tile } from "..";
 import { PlacedTiles, TilesProps } from "./types";
 
-const Tiles: FC<TilesProps> = ({ data, zoom, rowsPerItem, onTileClick }) => {
+const Tiles: FC<TilesProps> = ({ data, zoom, rowsPerItem, onTileClick, onItemResize }) => {
   const placeTiles = useCallback((): PlacedTiles => {
     let rows = 0;
     return data
@@ -24,13 +24,14 @@ const Tiles: FC<TilesProps> = ({ data, zoom, rowsPerItem, onTileClick }) => {
                 room={room.id}
                 seat={seat.id}
                 onTileClick={onTileClick}
+                onItemResize={onItemResize}
               />
             ))
           );
         });
       })
       .flat(2);
-  }, [data, rowsPerItem, onTileClick, zoom]);
+  }, [data, rowsPerItem, onTileClick, onItemResize, zoom]);
 
   return <>{placeTiles()}</>;
 };
