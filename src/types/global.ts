@@ -78,6 +78,7 @@ export type SchedulerData = SchedulerRow[];
 
 export type SchedulerRow = {
   id: string;
+  collapsed: boolean;
   label: SchedulerRowLabel;
   seats: SchedulerRowSeats[];
 };
@@ -94,6 +95,7 @@ export type PaginatedSchedulerData = PaginatedSchedulerRow[];
 
 export type PaginatedSchedulerRow = {
   id: string;
+  collapsed: boolean;
   label: SchedulerRowLabel;
   seats: PaginatedSchedulerRowSeats[];
 };

@@ -8,6 +8,13 @@ export const projectsOnGrid = (data: SchedulerData) => {
     const seats: SchedulerProjectData[][][] = [];
     let numberOfRows = 0;
 
+    if (curr.collapsed) {
+      acc[0].push([]);
+      acc[1].push(1);
+
+      return acc;
+    }
+
     curr.seats.forEach((seat) => {
       if (!seat.data.length) {
         seats.push([[]]);

@@ -9,7 +9,9 @@ export type LeftColumnItemProps = {
   item: SchedulerRowLabel;
   rows: number;
   seats: PaginatedSchedulerRowSeats[];
+  collapsed: boolean;
   onItemClick?: (data: SchedulerItemClickData) => void;
+  onRoomClick: (id: string) => void;
 };
 
 export type StyledTextProps = {

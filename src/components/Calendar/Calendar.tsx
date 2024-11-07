@@ -14,6 +14,7 @@ export const Calendar: FC<CalendarProps> = ({
   onItemClick,
   onItemDrop,
   onItemResize,
+  onRoomClick,
   toggleTheme,
   topBarWidth
 }) => {
@@ -71,6 +72,7 @@ export const Calendar: FC<CalendarProps> = ({
         searchInputValue={searchPhrase}
         onSearchInputChange={handleSearch}
         onItemClick={onItemClick}
+        onRoomClick={onRoomClick}
       />
       <StyledInnerWrapper>
         <Header
