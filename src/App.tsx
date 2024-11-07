@@ -52,6 +52,21 @@ function App() {
     );
   };
 
+  const onRoomClick = (roomId: string) => {
+    setData((prevData) => {
+      return prevData.map((room) => {
+        if (room.id === roomId) {
+          return {
+            ...room,
+            collapsed: !room.collapsed
+          };
+        }
+
+        return room;
+      });
+    });
+  };
+
   const onItemDrop = (from: From, to: To) => {
     setData((prevData) => {
       return prevData.map((room) => {
@@ -103,6 +118,7 @@ function App() {
           onItemClick={(data) => console.log("clicked: ", data)}
           onItemDrop={onItemDrop}
           onItemResize={onItemResize}
+          onRoomClick={onRoomClick}
         />
       ) : (
         <StyledSchedulerFrame>
@@ -114,6 +130,7 @@ function App() {
             onItemClick={(data) => console.log("clicked: ", data)}
             onItemDrop={onItemDrop}
             onItemResize={onItemResize}
+            onRoomClick={onRoomClick}
           />
         </StyledSchedulerFrame>
       )}

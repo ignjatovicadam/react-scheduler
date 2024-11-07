@@ -1,6 +1,7 @@
 export const mockDataWithSeats = [
   {
     id: "room-1",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom One",
@@ -49,6 +50,7 @@ export const mockDataWithSeats = [
   },
   {
     id: "room-2",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom Two",
@@ -97,6 +99,7 @@ export const mockDataWithSeats = [
   },
   {
     id: "room-3",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom Three",
@@ -138,6 +141,7 @@ export const mockDataWithSeats = [
   },
   {
     id: "room-4",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom Four",
@@ -165,6 +169,7 @@ export const mockDataWithSeats = [
   },
   {
     id: "room-5",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom Five",
@@ -192,6 +197,7 @@ export const mockDataWithSeats = [
   },
   {
     id: "room-6",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom Six",
@@ -219,6 +225,7 @@ export const mockDataWithSeats = [
   },
   {
     id: "room-7",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom Seven",
@@ -246,6 +253,7 @@ export const mockDataWithSeats = [
   },
   {
     id: "room-8",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom Eight",
@@ -273,6 +281,7 @@ export const mockDataWithSeats = [
   },
   {
     id: "room-9",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom Nine",
@@ -300,6 +309,7 @@ export const mockDataWithSeats = [
   },
   {
     id: "room-10",
+    collapsed: false,
     label: {
       icon: "https://picsum.photos/24",
       title: "Classroom Ten",

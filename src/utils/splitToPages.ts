@@ -25,7 +25,12 @@ export const splitToPages = (
         seats[j].data = structuredClone(projects[j]);
       }
 
-      const newItem = { id: data[i].id, label: data[i].label, seats: seats };
+      const newItem = {
+        id: data[i].id,
+        collapsed: data[i].collapsed,
+        label: data[i].label,
+        seats: seats
+      };
 
       if (pageRecords >= recordsThreshold) {
         pages.push(singlePage);
@@ -48,6 +53,7 @@ export const splitToPages = (
         }
         const newItem = {
           id: data[i + leftIndex].id,
+          collapsed: data[i + leftIndex].collapsed,
           label: data[i + leftIndex].label,
           seats: seats
         };
@@ -66,7 +72,12 @@ export const splitToPages = (
       seats[j].data = structuredClone(projects[j]) ?? [];
     }
 
-    const newItem = { id: data[i].id, label: data[i].label, seats: seats };
+    const newItem = {
+      id: data[i].id,
+      collapsed: data[i].collapsed,
+      label: data[i].label,
+      seats: seats
+    };
     singlePage.push(newItem);
   });
 

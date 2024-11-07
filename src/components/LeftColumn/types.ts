@@ -10,6 +10,7 @@ export type LeftColumnProps = {
   searchInputValue: string;
   onSearchInputChange: React.ChangeEventHandler<HTMLInputElement>;
   onItemClick?: (data: SchedulerItemClickData) => void;
+  onRoomClick: (id: string) => void;
 };
 
 export type StyledInputWrapperProps = {
