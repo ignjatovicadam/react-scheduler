@@ -114,7 +114,8 @@ function App() {
           onRangeChange={handleRangeChange}
           data={data}
           isLoading={false}
-          config={{ zoom: 0, maxRecordsPerPage: maxRecordsPerPage, showThemeToggle: true }}
+          config={{ zoom: 0, maxRecordsPerPage: maxRecordsPerPage, showThemeToggle: false }}
+          themeMode="dark"
           onItemClick={(data) => console.log("clicked: ", data)}
           onItemDrop={onItemDrop}
           onItemResize={onItemResize}
@@ -127,6 +128,7 @@ function App() {
             onRangeChange={handleRangeChange}
             isLoading={false}
             data={data}
+            themeMode="dark"
             onItemClick={(data) => console.log("clicked: ", data)}
             onItemDrop={onItemDrop}
             onItemResize={onItemResize}
