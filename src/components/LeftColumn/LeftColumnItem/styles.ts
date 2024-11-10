@@ -25,7 +25,7 @@ export const StyledRoomWrapper = styled.div<StyledRoomWrapperProps>`
   min-height: ${boxHeight}px;
   height: ${boxHeight}px;
   width: 100%;
-  padding: 0.813rem 0 0 1rem;
+  padding: 0.813rem 0 0 0.5rem;
   background-color: ${({ bgColor }) => bgColor};
 `;
 
@@ -59,6 +59,7 @@ export const StyledTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 0 0;
+  font-size: 1rem;
 `;
 export const StyledText = styled.p<StyledTextProps>`
   margin: 0;
