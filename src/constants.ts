@@ -5,10 +5,10 @@ export const headerMonthHeight = 24;
 export const headerWeekHeight = 16;
 export const headerDayHeight = 40;
 export const headerHeight = headerDayHeight + headerWeekHeight + headerMonthHeight;
-export const weekWidth = 84;
+export const weekWidth = 46;
 export const boxHeight = 45;
-export const leftColumnWidth = 196;
-export const singleDayWidth = 12;
+export const leftColumnWidth = 150;
+export const singleDayWidth = 6.57;
 export const zoom2ColumnWidth = 50;
 export const zoom2HeaderTopRowHeight = 24;
 export const zoom2HeaderMiddleRowHeight = 16;
@@ -22,8 +22,8 @@ export const fonts = {
   topRow: "600 14px Inter",
   middleRow: "400 10px Inter",
   bottomRow: {
-    name: "600 14px Inter",
-    number: "600 10px Inter"
+    name: "600 12px Inter",
+    number: "600 9px Inter"
   }
 };
 export const screenWidthMultiplier = 3;
