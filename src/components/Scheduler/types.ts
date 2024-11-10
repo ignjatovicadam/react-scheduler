@@ -13,6 +13,7 @@ export type SchedulerProps = {
   isLoading?: boolean;
   config?: Config;
   startDate?: string;
+  themeMode: string;
   onRangeChange?: (range: ParsedDatesRange) => void;
   onTileClick?: (data: SchedulerProjectData) => void;
   onFilterData?: () => void;

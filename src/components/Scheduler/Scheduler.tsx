@@ -14,6 +14,7 @@ const Scheduler = ({
   data,
   config,
   startDate,
+  themeMode,
   onRangeChange,
   onTileClick,
   onFilterData,
@@ -39,10 +40,6 @@ const Scheduler = ({
   const outsideWrapperRef = useRef<HTMLDivElement>(null);
   const [topBarWidth, setTopBarWidth] = useState(outsideWrapperRef.current?.clientWidth);
   const defaultStartDate = useMemo(() => dayjs(startDate), [startDate]);
-  const [themeMode, setThemeMode] = useState<"light" | "dark">(appConfig.defaultTheme ?? "light");
-  const toggleTheme = () => {
-    themeMode === "light" ? setThemeMode("dark") : setThemeMode("light");
-  };
 
   const currentTheme = themeMode === "light" ? theme : darkTheme;
   const customColors = appConfig.theme ? appConfig.theme[currentTheme.mode] : {};
@@ -92,7 +89,6 @@ const Scheduler = ({
                   onTileClick={onTileClick}
                   topBarWidth={topBarWidth ?? 0}
                   onItemClick={onItemClick}
-                  toggleTheme={toggleTheme}
                   onItemDrop={onItemDrop}
                   onItemResize={onItemResize}
                   onRoomClick={onRoomClick}
