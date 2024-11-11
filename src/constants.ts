@@ -2,7 +2,7 @@ import { prefixId } from "./styles";
 
 export const dayWidth = 50;
 export const headerMonthHeight = 24;
-export const headerWeekHeight = 16;
+export const headerWeekHeight = 24;
 export const headerDayHeight = 40;
 export const headerHeight = headerDayHeight + headerWeekHeight + headerMonthHeight;
 export const weekWidth = 46;
@@ -19,11 +19,11 @@ export const zoom2ButtonJump = 1;
 export const weeksInYear = 52;
 export const navHeight = 44;
 export const fonts = {
-  topRow: "600 14px Inter",
-  middleRow: "400 10px Inter",
+  topRow: "600 14px inherit",
+  middleRow: "400 10px inherit",
   bottomRow: {
-    name: "600 12px Inter",
-    number: "600 9px Inter"
+    name: "600 12px inherit",
+    number: "600 9px inherit"
   }
 };
 export const screenWidthMultiplier = 3;
@@ -35,7 +35,7 @@ export const canvasHeaderWrapperId = "reactSchedulerCanvasHeaderWrapper";
 export const canvasWrapperId = "reactSchedulerCanvasWrapper";
 export const outsideWrapperId = prefixId;
 export const tileYOffset = 4;
-export const tileHeight = 28;
+export const tileHeight = 20;
 export const formFieldsIds = {
   peopleCount: "peopleCount",
   projectsPerYear: "projectsPerYear",

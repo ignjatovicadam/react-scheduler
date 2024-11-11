@@ -10,7 +10,8 @@ export const StyledTileWrapper = styled.button<{ ref: React.RefObject<HTMLButton
   z-index: 9;
   outline: none;
   border: none;
-  border-radius: 4px;
+  width: 563px;
+  border-radius: 0px 20px 20px 0px;
   text-align: left;
   color: ${({ theme }) => theme.colors.textPrimary};
   width: 100%;
@@ -23,11 +24,11 @@ export const StyledInnerWrapper = styled.div`
 
 export const StyledResizeButton = styled.div`
   position: absolute;
-  bottom: 10px;
-  right: -5px;
+  bottom: 8px;
+  right: -3px;
   background: red;
-  height: 15px;
-  width: 15px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   cursor: se-resize;
 `;
