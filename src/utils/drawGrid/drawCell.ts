@@ -21,5 +21,5 @@ export const drawCell = (
   ctx.beginPath();
   ctx.setLineDash([]);
   ctx.fillRect(x, y, width, boxHeight);
-  ctx.strokeRect(x + 0.5, y + 0.5, width, boxHeight);
+  ctx.strokeRect(x, y, width, boxHeight);
 };

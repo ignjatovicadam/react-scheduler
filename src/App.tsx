@@ -115,7 +115,7 @@ function App() {
           data={data}
           isLoading={false}
           config={{ zoom: 0, maxRecordsPerPage: maxRecordsPerPage, showThemeToggle: false }}
-          themeMode="dark"
+          themeMode="light"
           onItemClick={(data) => console.log("clicked: ", data)}
           onItemDrop={onItemDrop}
           onItemResize={onItemResize}

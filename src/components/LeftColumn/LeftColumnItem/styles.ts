@@ -59,7 +59,7 @@ export const StyledTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 0 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
 `;
 export const StyledText = styled.p<StyledTextProps>`
   margin: 0;
