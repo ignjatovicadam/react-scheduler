@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 import { weekWidth, dayWidth, zoom2ColumnWidth } from "@/constants";
-import { GetEndDateProps } from "./types";
+import { GetCalendarDateProps } from "./types";
 
-export const getEndDate = ({ startDate, position, zoom }: GetEndDateProps) => {
+export const getCalendarDate = ({ calendarStartDate, position, zoom }: GetCalendarDateProps) => {
   let timeUnit: dayjs.ManipulateType = "weeks";
   let currBoxWidth;
 
@@ -26,9 +26,11 @@ export const getEndDate = ({ startDate, position, zoom }: GetEndDateProps) => {
       ? Math.ceil((position - 0.5 * currBoxWidth) / currBoxWidth)
       : Math.ceil(position / currBoxWidth);
 
-  const endDay = dayjs(
-    `${startDate.year}-${startDate.month + 1}-${startDate.dayOfMonth}T${startDate.hour}:00:00`
+  const date = dayjs(
+    `${calendarStartDate.year}-${calendarStartDate.month + 1}-${calendarStartDate.dayOfMonth}T${
+      calendarStartDate.hour
+    }:00:00`
   ).add(column - 1, timeUnit);
 
-  return endDay.toDate();
+  return date.toDate();
 };

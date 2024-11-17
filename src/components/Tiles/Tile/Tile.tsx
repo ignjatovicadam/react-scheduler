@@ -30,13 +30,15 @@ const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick, onItemR
   );
 
   const { tile, onResize } = useResize({
-    initialWidth: width,
-    startDate,
-    x,
+    tileWidth: width,
+    tilePositionX: x,
+    tileStartDate: data.startDate,
+    tileEndDate: data.endDate,
+    tileId: data.id,
+    calendarStartDate: startDate,
     zoom,
-    room,
-    seat,
-    id: data.id,
+    roomId: room,
+    seatId: seat,
     onItemResize
   });
 
@@ -65,14 +67,15 @@ const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick, onItemR
       }}
       onDragStart={onDrag}
       onClick={() => onTileClick?.(data)}>
+      <StyledResizeButton className="left" onMouseDown={(e) => onResize(e, "left")} />
       <StyledInnerWrapper>
-        <StyledResizeButton onMouseDown={onResize} />
         <StyledTextWrapper>
           <StyledStickyWrapper>
             <StyledText bold>{data.title}</StyledText>
           </StyledStickyWrapper>
         </StyledTextWrapper>
       </StyledInnerWrapper>
+      <StyledResizeButton className="right" onMouseDown={(e) => onResize(e, "right")} />
     </StyledTileWrapper>
   );
 };

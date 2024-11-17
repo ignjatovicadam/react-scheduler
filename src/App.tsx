@@ -25,7 +25,7 @@ function App() {
 
   const handleRangeChange = useCallback((range: ParsedDatesRange) => setRange(range), []);
 
-  const onItemResize = (roomId: string, seatId: string, tileId: string, newEndDate: Date) => {
+  const onItemResize = (roomId: string, seatId: string, tileId: string, start: Date, end: Date) => {
     setData((prevData) =>
       prevData.map((room) => {
         if (room.id === roomId) {
@@ -37,7 +37,7 @@ function App() {
                   ...seat,
                   data: seat.data.map((tile) => {
                     if (tile.id === tileId) {
-                      return { ...tile, endDate: newEndDate };
+                      return { ...tile, startDate: start, endDate: end };
                     }
                     return tile;
                   })

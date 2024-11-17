@@ -1,1 +1,1 @@
-export { getEndDate } from "./getEndDate";
+export { getCalendarDate } from "./getCalendarDate";

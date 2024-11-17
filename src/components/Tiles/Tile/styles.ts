@@ -10,11 +10,9 @@ export const StyledTileWrapper = styled.button<{ ref: React.RefObject<HTMLButton
   z-index: 9;
   outline: none;
   border: none;
-  width: 563px;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 20px;
   text-align: left;
   color: ${({ theme }) => theme.colors.textPrimary};
-  width: 100%;
   cursor: pointer;
 `;
 
@@ -24,23 +22,30 @@ export const StyledInnerWrapper = styled.div`
 
 export const StyledResizeButton = styled.div`
   position: absolute;
-  bottom: 8px;
-  right: -3px;
-  background: red;
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
-  cursor: se-resize;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  height: 100%;
+  cursor: ew-resize;
+  z-index: 10;
+
+  &.left {
+    left: 0px;
+  }
+
+  &.right {
+    right: 0px;
+  }
 `;
 
 export const StyledTextWrapper = styled.div`
   position: relative;
-  padding: 0px 15px;
   display: flex;
   align-items: center;
   font-size: 10px;
   letter-spacing: 0.5px;
   line-height: 12px;
+  padding: 0px 15px;
 `;
 
 export const StyledText = styled.p<StyledTextProps>`

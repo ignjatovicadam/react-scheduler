@@ -16,7 +16,7 @@ export const mockDataWithSeats = [
           {
             id: "project1-room1-seat1",
             startDate: new Date("2024-10-01"),
-            endDate: new Date("2024-10-05"),
+            endDate: new Date("2024-10-20"),
             occupancy: 2000,
             title: "Project A",
             subtitle: "Mechanics",

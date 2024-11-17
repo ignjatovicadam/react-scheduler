@@ -1,41 +1,89 @@
 import { useRef, useEffect } from "react";
-import { singleDayWidth } from "@/constants";
-import { getEndDate } from "../utils/getEndDate";
+import { singleDayWidth, weekWidth } from "@/constants";
+import { getCalendarDate } from "../utils/getCalendarDate";
 import { useResizeProps } from "./types";
 
 export const useResize = ({
-  initialWidth,
-  startDate,
-  x,
+  tileWidth,
+  tilePositionX,
+  tileStartDate,
+  tileEndDate,
+  tileId,
+  calendarStartDate,
   zoom,
-  room,
-  seat,
-  id,
+  roomId,
+  seatId,
   onItemResize
 }: useResizeProps) => {
   const tile = useRef<HTMLButtonElement>(null);
-  const initialXRef = useRef(0);
-  const currentWidth = useRef(0);
+  const startClientPositionX = useRef(0);
+  const currentTileWidth = useRef(0);
+  const currentResizeDirection = useRef("right");
+  const currentTileLeftProp = useRef(tilePositionX);
 
-  const onMouseMove = (e: MouseEvent) => {
-    const newWidth = Math.max(initialWidth + e.clientX - initialXRef.current, singleDayWidth);
-    currentWidth.current = newWidth;
-    if (tile.current) tile.current.style.width = `${newWidth}px`;
+  const onResize = (e: React.MouseEvent, direction: string) => {
+    e.preventDefault();
+    currentResizeDirection.current = direction;
+    startClientPositionX.current = e.clientX;
+
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
   };
 
   const onMouseUp = () => {
-    const endDate = getEndDate({ startDate, position: x + currentWidth.current, zoom });
-    onItemResize(room, seat, id, endDate);
+    if (currentResizeDirection.current === "right") {
+      const date = getCalendarDate({
+        calendarStartDate,
+        position: tilePositionX + currentTileWidth.current,
+        zoom
+      });
+
+      onItemResize(roomId, seatId, tileId, tileStartDate, date);
+    }
+
+    if (currentResizeDirection.current === "left") {
+      const date = getCalendarDate({
+        calendarStartDate,
+        position: currentTileLeftProp.current,
+        zoom
+      });
+
+      onItemResize(roomId, seatId, tileId, date, tileEndDate);
+    }
+
     window.removeEventListener("mousemove", onMouseMove);
     window.removeEventListener("mouseup", onMouseUp);
   };
 
-  const onResize = (event: React.MouseEvent) => {
-    event.preventDefault();
-    initialXRef.current = event.clientX;
+  const onMouseMove = (e: MouseEvent) => {
+    if (currentResizeDirection.current === "right") {
+      resizeRight(e);
+      if (tile.current) {
+        tile.current.style.width = `${currentTileWidth.current}px`;
+      }
+    }
 
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
+    if (currentResizeDirection.current === "left") {
+      resizeLeft(e);
+      if (tile.current) {
+        tile.current.style.width = `${currentTileWidth.current}px`;
+        tile.current.style.left = `${currentTileLeftProp.current}px`;
+      }
+    }
+  };
+
+  const resizeRight = (e: MouseEvent) => {
+    const width = Math.max(
+      tileWidth + e.clientX - startClientPositionX.current,
+      zoom === 0 ? weekWidth : singleDayWidth
+    );
+    currentTileWidth.current = width;
+  };
+
+  const resizeLeft = (e: MouseEvent) => {
+    const delta = startClientPositionX.current - e.clientX;
+    currentTileLeftProp.current = tilePositionX - delta;
+    currentTileWidth.current = Math.max(tileWidth + delta, zoom === 0 ? weekWidth : singleDayWidth);
   };
 
   useEffect(() => {
@@ -45,5 +93,8 @@ export const useResize = ({
     };
   }, []);
 
-  return { tile, onResize };
+  return {
+    tile,
+    onResize
+  };
 };
