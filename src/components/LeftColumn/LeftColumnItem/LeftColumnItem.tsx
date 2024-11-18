@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { IconChevronDown } from "@tabler/icons-react";
 import {
   StyledText,
   StyledTextWrapper,
@@ -22,7 +23,10 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
   return (
     <StyledWrapper rows={rows} clickable={typeof onItemClick === "function"} onClick={onClick}>
       <StyledRoomWrapper bgColor={item.bgColor}>
-        <StyledTextWrapper>{item.title}</StyledTextWrapper>
+        <StyledTextWrapper>
+          <span>{item.title}</span>
+          <IconChevronDown size="18" className={`rotate-icon ${collapsed ? "up" : ""}`} />
+        </StyledTextWrapper>
       </StyledRoomWrapper>
       {seats.map((seat, i) => {
         if (collapsed) return null;

@@ -57,14 +57,29 @@ export const StyledImage = styled.img`
 `;
 export const StyledTextWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  flex: 1 0 0;
-  font-size: 0.9rem;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  text-transform: uppercase;
+
+  span {
+    width: 110px;
+    max-width: 110px;
+    white-space: nowrap;
+  }
+
+  .rotate-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .rotate-icon.up {
+    transform: rotate(180deg);
+  }
 `;
 export const StyledText = styled.p<StyledTextProps>`
   margin: 0;
   padding: 0;
-  font-size: ${({ isMain }) => (isMain ? 0.75 + "rem" : 0.625 + "rem")};
+  font-size: ${({ isMain }) => (isMain ? 0.6 + "rem" : 0.625 + "rem")};
   letter-spacing: ${({ isMain }) => (isMain ? 1 + "px" : 0.5 + "px")};
   line-height: ${({ isMain }) => (isMain ? 1.125 + "rem" : 0.75 + "rem")};
   color: ${({ isMain, theme }) => (isMain ? theme.colors.textPrimary : theme.colors.placeholder)};

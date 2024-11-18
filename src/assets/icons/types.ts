@@ -8,6 +8,7 @@ export type IconsNames =
   | "arrowRight"
   | "defaultAvatar"
   | "calendarWarning"
+  | "chevronDown"
   | "calendarFree"
   | "arrowUp"
   | "arrowDown"

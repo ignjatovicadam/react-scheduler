@@ -22,8 +22,22 @@ export const StyledLeftColumnHeader = styled.div`
   flex-direction: column;
   justify-content: end;
   width: ${leftColumnWidth}px;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: #faa419;
+  padding: 0.813rem 0 0 0.5rem;
+  color: white;
   z-index: 3;
+
+  .classroom__edit {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+
+    span {
+      width: 110px;
+      max-width: 110px;
+    }
+  }
 `;
 
 export const StyledInput = styled.input`

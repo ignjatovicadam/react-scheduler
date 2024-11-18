@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { IconEdit } from "@tabler/icons-react";
 import Icon from "../Icon";
 import PaginationButton from "../PaginationButton/PaginationButton";
 import { StyledLeftColumnHeader, StyledWrapper } from "./styles";
@@ -18,6 +19,10 @@ const LeftColumn: FC<LeftColumnProps> = ({
   return (
     <StyledWrapper>
       <StyledLeftColumnHeader>
+        <div className="classroom__edit">
+          <span>CLASSROOMS</span>
+          <IconEdit stroke={2} />
+        </div>
         <PaginationButton
           intent="previous"
           isVisible={pageNum !== 0}
