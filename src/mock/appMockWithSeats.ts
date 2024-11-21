@@ -37,7 +37,8 @@ export const mockDataWithSeats = [
             title: "Project B",
             subtitle: "Thermodynamics",
             description: "Heat and temperature",
-            bgColor: "rgb(250,200,200)"
+            bgColor: "rgb(250,200,200)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       },
@@ -75,7 +76,8 @@ export const mockDataWithSeats = [
             title: "Project C",
             subtitle: "Organic Chemistry",
             description: "Structure of organic molecules",
-            bgColor: "rgb(220,150,255)"
+            bgColor: "rgb(220,150,255)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       },
@@ -91,7 +93,8 @@ export const mockDataWithSeats = [
             title: "Project D",
             subtitle: "Inorganic Chemistry",
             description: "Metallic bonding",
-            bgColor: "rgb(230,230,200)"
+            bgColor: "rgb(230,230,200)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       }
@@ -123,7 +126,8 @@ export const mockDataWithSeats = [
             title: "Project E",
             subtitle: "Algebra",
             description: "Introduction to algebra",
-            bgColor: "rgb(150,250,190)"
+            bgColor: "rgb(150,250,190)",
+            dateOfBirth: "2000-01-01"
           },
           {
             id: "project2-room3-seat1",
@@ -133,7 +137,8 @@ export const mockDataWithSeats = [
             title: "Project F",
             subtitle: "Calculus",
             description: "Basics of calculus",
-            bgColor: "rgb(250,210,180)"
+            bgColor: "rgb(250,210,180)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       }
@@ -161,7 +166,8 @@ export const mockDataWithSeats = [
             title: "Project G",
             subtitle: "Genetics",
             description: "DNA and heredity",
-            bgColor: "rgb(200,220,240)"
+            bgColor: "rgb(200,220,240)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       }
@@ -189,7 +195,8 @@ export const mockDataWithSeats = [
             title: "Project H",
             subtitle: "Ancient History",
             description: "Civilizations and cultures",
-            bgColor: "rgb(240,210,150)"
+            bgColor: "rgb(240,210,150)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       }
@@ -217,7 +224,8 @@ export const mockDataWithSeats = [
             title: "Project I",
             subtitle: "Poetry",
             description: "Romantic era poets",
-            bgColor: "rgb(240,200,190)"
+            bgColor: "rgb(240,200,190)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       }
@@ -245,7 +253,8 @@ export const mockDataWithSeats = [
             title: "Project J",
             subtitle: "Programming Basics",
             description: "Intro to programming",
-            bgColor: "rgb(150,210,240)"
+            bgColor: "rgb(150,210,240)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       }
@@ -273,7 +282,8 @@ export const mockDataWithSeats = [
             title: "Project K",
             subtitle: "World Geography",
             description: "Continents and countries",
-            bgColor: "rgb(240,210,200)"
+            bgColor: "rgb(240,210,200)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       }
@@ -301,7 +311,8 @@ export const mockDataWithSeats = [
             title: "Project L",
             subtitle: "Fluid Mechanics",
             description: "Properties of fluids",
-            bgColor: "rgb(200,180,230)"
+            bgColor: "rgb(200,180,230)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       }
@@ -329,7 +340,8 @@ export const mockDataWithSeats = [
             title: "Project M",
             subtitle: "Ethics",
             description: "Principles of moral philosophy",
-            bgColor: "rgb(240,250,200)"
+            bgColor: "rgb(240,250,200)",
+            dateOfBirth: "2000-01-01"
           }
         ]
       }
