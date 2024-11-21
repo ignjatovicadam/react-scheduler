@@ -14,16 +14,16 @@ export type LangCodes = "en" | "pl" | "de" | "lt";
 export type From = {
   fromRoom: string;
   fromSeat: string;
-  start: Date;
-  end: Date;
+  start: string;
+  end: string;
   id: string;
 };
 
 export type To = {
   toRoom: string;
   toSeat: string;
-  start: Date;
-  end: Date;
+  start: string;
+  end: string;
   id?: string;
 };
 
@@ -120,11 +120,11 @@ export type SchedulerProjectData = {
   /**
    * Represents start date of from which tile will render
    */
-  startDate: Date;
+  startDate: string;
   /**
    * Represents end date to which tile will render
    */
-  endDate: Date;
+  endDate: string;
   /**
    * Indicates how much time is spent per day. Given in seconds and converted by Scheduler to hours/minutes
    */

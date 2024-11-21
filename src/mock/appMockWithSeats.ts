@@ -15,8 +15,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room1-seat1",
-            startDate: new Date("2024-10-01"),
-            endDate: new Date("2024-10-20"),
+            startDate: "2024-10-01",
+            endDate: "2024-10-20",
             occupancy: 2000,
             title: "Project A",
             subtitle: "Mechanics",
@@ -31,8 +31,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project2-room1-seat2",
-            startDate: new Date("2024-10-06"),
-            endDate: new Date("2024-10-10"),
+            startDate: "2024-10-06",
+            endDate: "2024-10-10",
             occupancy: 1500,
             title: "Project B",
             subtitle: "Thermodynamics",
@@ -70,8 +70,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room2-seat1",
-            startDate: new Date("2024-11-01"),
-            endDate: new Date("2024-11-05"),
+            startDate: "2024-11-01",
+            endDate: "2024-11-05",
             occupancy: 1500,
             title: "Project C",
             subtitle: "Organic Chemistry",
@@ -87,8 +87,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project2-room2-seat2",
-            startDate: new Date("2024-11-06"),
-            endDate: new Date("2024-11-12"),
+            startDate: "2024-11-06",
+            endDate: "2024-11-12",
             occupancy: 2200,
             title: "Project D",
             subtitle: "Inorganic Chemistry",
@@ -120,8 +120,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room3-seat1",
-            startDate: new Date("2024-12-01"),
-            endDate: new Date("2024-12-10"),
+            startDate: "2024-12-01",
+            endDate: "2024-12-10",
             occupancy: 1700,
             title: "Project E",
             subtitle: "Algebra",
@@ -131,8 +131,8 @@ export const mockDataWithSeats = [
           },
           {
             id: "project2-room3-seat1",
-            startDate: new Date("2024-12-11"),
-            endDate: new Date("2024-12-20"),
+            startDate: "2024-12-11",
+            endDate: "2024-12-20",
             occupancy: 1800,
             title: "Project F",
             subtitle: "Calculus",
@@ -160,8 +160,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room4-seat1",
-            startDate: new Date("2024-10-15"),
-            endDate: new Date("2024-10-25"),
+            startDate: "2024-10-15",
+            endDate: "2024-10-25",
             occupancy: 1400,
             title: "Project G",
             subtitle: "Genetics",
@@ -189,8 +189,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room5-seat1",
-            startDate: new Date("2024-09-01"),
-            endDate: new Date("2024-09-10"),
+            startDate: "2024-09-01",
+            endDate: "2024-09-10",
             occupancy: 2000,
             title: "Project H",
             subtitle: "Ancient History",
@@ -218,8 +218,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room6-seat1",
-            startDate: new Date("2024-11-20"),
-            endDate: new Date("2024-12-01"),
+            startDate: "2024-11-20",
+            endDate: "2024-12-01",
             occupancy: 2100,
             title: "Project I",
             subtitle: "Poetry",
@@ -247,8 +247,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room7-seat1",
-            startDate: new Date("2024-08-01"),
-            endDate: new Date("2024-08-10"),
+            startDate: "2024-08-01",
+            endDate: "2024-08-10",
             occupancy: 1600,
             title: "Project J",
             subtitle: "Programming Basics",
@@ -276,8 +276,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room8-seat1",
-            startDate: new Date("2024-06-01"),
-            endDate: new Date("2024-06-10"),
+            startDate: "2024-06-01",
+            endDate: "2024-06-10",
             occupancy: 2300,
             title: "Project K",
             subtitle: "World Geography",
@@ -305,8 +305,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room9-seat1",
-            startDate: new Date("2024-05-15"),
-            endDate: new Date("2024-05-25"),
+            startDate: "2024-05-15",
+            endDate: "2024-05-25",
             occupancy: 2500,
             title: "Project L",
             subtitle: "Fluid Mechanics",
@@ -334,8 +334,8 @@ export const mockDataWithSeats = [
         data: [
           {
             id: "project1-room10-seat1",
-            startDate: new Date("2024-07-01"),
-            endDate: new Date("2024-07-10"),
+            startDate: "2024-07-01",
+            endDate: "2024-07-10",
             occupancy: 1800,
             title: "Project M",
             subtitle: "Ethics",

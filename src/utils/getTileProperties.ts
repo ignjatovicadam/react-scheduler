@@ -7,8 +7,8 @@ export const getTileProperties = (
   row: number,
   startDate: dayjs.Dayjs,
   endDate: dayjs.Dayjs,
-  resourceStartDate: Date,
-  resourceEndDate: Date,
+  resourceStartDate: string,
+  resourceEndDate: string,
   zoom: number
 ): TileProperties => {
   const y = row * boxHeight + tileYOffset;

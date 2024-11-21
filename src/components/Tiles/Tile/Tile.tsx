@@ -85,8 +85,8 @@ const Tile: FC<TileProps> = ({
         <StyledTextWrapper>
           <StyledText bold>{data.title}</StyledText>
           {data.dateOfBirth && <StyledText>{data.dateOfBirth}</StyledText>}
-          {data.startDate && <StyledText>{data.startDate.toDateString()}</StyledText>}
-          {data.endDate && <StyledText>{data.endDate.toDateString()}</StyledText>}
+          {data.startDate && <StyledText>{data.startDate}</StyledText>}
+          {data.endDate && <StyledText>{data.endDate}</StyledText>}
           <StyledCommentButton onClick={onCommentButtonClick}>Comment</StyledCommentButton>
         </StyledTextWrapper>
       </StyledInnerWrapper>
