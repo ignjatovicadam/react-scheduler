@@ -2,7 +2,6 @@ import dayjs from "dayjs";
 import { SchedulerProjectData, OccupancyData, ZoomLevel } from "@/types/global";
 import { getWeekOccupancy } from "./getWeekOccupancy";
 import { getDayOccupancy } from "./getDayOccupancy";
-import { getHourOccupancy } from "./getHourOccupancy";
 
 export const getOccupancy = (
   resource: SchedulerProjectData[][][],
@@ -21,8 +20,6 @@ export const getOccupancy = (
   const occupancy = resource.flat(2).filter((item) => {
     if (zoom === 1) {
       return dayjs(focusedDate).isBetween(item.startDate, item.endDate, "day", "[]");
-    } else if (zoom === 2) {
-      return dayjs(focusedDate).isBetween(item.startDate, item.endDate, "hour", "[]");
     } else {
       return (
         dayjs(item.startDate).isBetween(
@@ -38,8 +35,6 @@ export const getOccupancy = (
   switch (zoom) {
     case 1:
       return getDayOccupancy(occupancy, focusedDate, zoom, includeTakenHoursOnWeekendsInDayView);
-    case 2:
-      return getHourOccupancy(occupancy, focusedDate);
     default:
       return getWeekOccupancy(occupancy, focusedDate, zoom);
   }

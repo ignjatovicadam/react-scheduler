@@ -14,11 +14,8 @@ export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
   width: 100%;
   min-height: ${boxHeight}px;
   height: calc(${boxHeight}px * ${({ rows }) => rows});
-  transition: 0.5s ease;
+  transition: height 0.6s ease-in-out;
   cursor: ${({ clickable }) => (clickable ? "pointer" : "auto")};
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.hover};
-  }
 `;
 
 export const StyledRoomWrapper = styled.div<StyledRoomWrapperProps>`
