@@ -14,6 +14,7 @@ export type GridProps = {
     start: string,
     end: string
   ) => void;
+  onCommentClick: (data: SchedulerProjectData) => void;
 };
 
 export type StyledSpanProps = {

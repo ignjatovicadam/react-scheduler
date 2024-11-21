@@ -41,14 +41,14 @@ const Topbar: FC<TopbarProps> = ({ width, showThemeToggle, toggleTheme }) => {
             isDisabled={!isPrevZoom}
             onClick={zoomOut}
             isFullRounded
-            iconName="letterY"
+            iconName="subtract"
             width="14"
           />
           <IconButton
             isDisabled={!isNextZoom}
             onClick={zoomIn}
             isFullRounded
-            iconName="letterM"
+            iconName="add"
             width="14"
           />
         </Zoom>

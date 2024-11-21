@@ -21,6 +21,7 @@ export type CalendarProps = {
   ) => void;
   onRoomClick: (id: string) => void;
   toggleTheme?: () => void;
+  onCommentClick: (data: SchedulerProjectData) => void;
 };
 
 export type StyledSpanProps = {

@@ -28,6 +28,7 @@ export type SchedulerProps = {
     end: string
   ) => void;
   onRoomClick: (id: string) => void;
+  onCommentClick: (data: SchedulerProjectData) => void;
 };
 
 export type StyledOutsideWrapperProps = {

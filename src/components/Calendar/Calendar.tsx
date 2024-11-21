@@ -16,6 +16,7 @@ export const Calendar: FC<CalendarProps> = ({
   onItemResize,
   onRoomClick,
   toggleTheme,
+  onCommentClick,
   topBarWidth
 }) => {
   const [filteredData, setFilteredData] = useState(data);
@@ -91,6 +92,7 @@ export const Calendar: FC<CalendarProps> = ({
             onTileClick={onTileClick}
             onItemDrop={onItemDrop}
             onItemResize={onItemResize}
+            onCommentClick={onCommentClick}
           />
         ) : (
           <StyledEmptyBoxWrapper width={topBarWidth}>
