@@ -23,6 +23,7 @@ const Scheduler = ({
   onItemDrop,
   onItemResize,
   onRoomClick,
+  onCommentClick,
   isLoading
 }: SchedulerProps) => {
   const appConfig: Config = useMemo(
@@ -92,6 +93,7 @@ const Scheduler = ({
                   onItemDrop={onItemDrop}
                   onItemResize={onItemResize}
                   onRoomClick={onRoomClick}
+                  onCommentClick={onCommentClick}
                 />
               </StyledInnerWrapper>
             </StyledOutsideWrapper>

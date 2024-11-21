@@ -8,6 +8,7 @@ export type TileProps = {
   seat: string;
   onTileClick?: (data: SchedulerProjectData) => void;
   onItemResize: (roomId: string, seatId: string, tileId: string, start: Date, end: Date) => void;
+  onCommentClick: (data: SchedulerProjectData) => void;
 };
 
 export type StyledTextProps = {

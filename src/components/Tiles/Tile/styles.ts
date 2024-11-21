@@ -60,6 +60,18 @@ export const StyledText = styled.p<StyledTextProps>`
   }
 `;
 
+export const StyledCommentButton = styled.div`
+  ${marginPaddingReset}
+  ${truncate}
+  background: none;
+  border: none;
+  font-size: 10px;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+`;
+
 export const StyledDescription = styled.p`
   ${marginPaddingReset}
   ${truncate}

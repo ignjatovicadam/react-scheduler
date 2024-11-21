@@ -22,6 +22,7 @@ export type SchedulerProps = {
   onItemDrop: (from: From, to: To) => void;
   onItemResize: (roomId: string, seatId: string, tileId: string, start: Date, end: Date) => void;
   onRoomClick: (id: string) => void;
+  onCommentClick: (data: SchedulerProjectData) => void;
 };
 
 export type StyledOutsideWrapperProps = {

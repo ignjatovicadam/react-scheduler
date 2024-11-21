@@ -6,6 +6,7 @@ export type TilesProps = {
   rowsPerItem: number[];
   onTileClick?: (data: SchedulerProjectData) => void;
   onItemResize: (roomId: string, seatId: string, tileId: string, start: Date, end: Date) => void;
+  onCommentClick: (data: SchedulerProjectData) => void;
 };
 
 export type PlacedTiles = JSX.Element[];

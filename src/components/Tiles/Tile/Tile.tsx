@@ -9,12 +9,22 @@ import {
   StyledTextWrapper,
   StyledTileWrapper,
   StyledInnerWrapper,
-  StyledResizeButton
+  StyledResizeButton,
+  StyledCommentButton
 } from "./styles";
 import { TileProps } from "./types";
 import { useResize } from "./hooks/useResize";
 
-const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick, onItemResize }) => {
+const Tile: FC<TileProps> = ({
+  row,
+  data,
+  zoom,
+  room,
+  seat,
+  onTileClick,
+  onItemResize,
+  onCommentClick
+}) => {
   const { date, startDate } = useCalendar();
   const { colors } = useTheme();
   const datesRange = getDatesRange(date, zoom);
@@ -52,6 +62,10 @@ const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick, onItemR
     event.dataTransfer.setData("application/json", JSON.stringify(m));
   };
 
+  const onCommentButtonClick = () => {
+    onCommentClick(data);
+  };
+
   return (
     <StyledTileWrapper
       draggable={true}
@@ -73,6 +87,7 @@ const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick, onItemR
           {data.dateOfBirth && <StyledText>{data.dateOfBirth}</StyledText>}
           {data.startDate && <StyledText>{data.startDate.toDateString()}</StyledText>}
           {data.endDate && <StyledText>{data.endDate.toDateString()}</StyledText>}
+          <StyledCommentButton onClick={onCommentButtonClick}>Comment</StyledCommentButton>
         </StyledTextWrapper>
       </StyledInnerWrapper>
       <StyledResizeButton className="right" onMouseDown={(e) => onResize(e, "right")} />

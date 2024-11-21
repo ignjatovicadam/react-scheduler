@@ -15,6 +15,7 @@ export type CalendarProps = {
   onItemResize: (roomId: string, seatId: string, tileId: string, start: Date, end: Date) => void;
   onRoomClick: (id: string) => void;
   toggleTheme?: () => void;
+  onCommentClick: (data: SchedulerProjectData) => void;
 };
 
 export type StyledSpanProps = {

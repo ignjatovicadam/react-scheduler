@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { mockDataWithSeats } from "./mock/appMockWithSeats";
 import { ParsedDatesRange } from "./utils/getDatesRange";
-import { ConfigFormValues, From, To, SchedulerData } from "./types/global";
+import { ConfigFormValues, From, To, SchedulerData, SchedulerProjectData } from "./types/global";
 import { StyledSchedulerFrame } from "./styles";
 import { Scheduler } from ".";
 
@@ -66,6 +66,10 @@ function App() {
     });
   };
 
+  const onCommentClick = (data: SchedulerProjectData) => {
+    console.log(data);
+  };
+
   const onItemDrop = (from: From, to: To) => {
     setData((prevData) => {
       return prevData.map((room) => {
@@ -118,6 +122,7 @@ function App() {
           onItemDrop={onItemDrop}
           onItemResize={onItemResize}
           onRoomClick={onRoomClick}
+          onCommentClick={onCommentClick}
         />
       ) : (
         <StyledSchedulerFrame>
@@ -131,6 +136,7 @@ function App() {
             onItemDrop={onItemDrop}
             onItemResize={onItemResize}
             onRoomClick={onRoomClick}
+            onCommentClick={onCommentClick}
           />
         </StyledSchedulerFrame>
       )}
