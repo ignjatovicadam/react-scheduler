@@ -12,7 +12,13 @@ export type CalendarProps = {
   onTileClick?: (data: SchedulerProjectData) => void;
   onItemClick?: (data: SchedulerItemClickData) => void;
   onItemDrop: (from: From, to: To) => void;
-  onItemResize: (roomId: string, seatId: string, tileId: string, start: Date, end: Date) => void;
+  onItemResize: (
+    roomId: string,
+    seatId: string,
+    tileId: string,
+    start: string,
+    end: string
+  ) => void;
   onRoomClick: (id: string) => void;
   toggleTheme?: () => void;
 };

@@ -3,12 +3,18 @@ import { Day, ZoomLevel } from "@/types/global";
 export type useResizeProps = {
   tileWidth: number;
   tilePositionX: number;
-  tileStartDate: Date;
-  tileEndDate: Date;
+  tileStartDate: string;
+  tileEndDate: string;
   tileId: string;
   calendarStartDate: Day;
   zoom: ZoomLevel;
   roomId: string;
   seatId: string;
-  onItemResize: (roomId: string, seatId: string, tileId: string, start: Date, end: Date) => void;
+  onItemResize: (
+    roomId: string,
+    seatId: string,
+    tileId: string,
+    start: string,
+    end: string
+  ) => void;
 };

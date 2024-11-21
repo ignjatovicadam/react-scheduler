@@ -7,7 +7,13 @@ export type GridProps = {
   rowsPerItem: number[];
   onTileClick?: (data: SchedulerProjectData) => void;
   onItemDrop: (from: From, to: To) => void;
-  onItemResize: (roomId: string, seatId: string, tileId: string, start: Date, end: Date) => void;
+  onItemResize: (
+    roomId: string,
+    seatId: string,
+    tileId: string,
+    start: string,
+    end: string
+  ) => void;
 };
 
 export type StyledSpanProps = {
