@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { leftColumnWidth, tileHeight } from "@/constants";
+import { tileHeight } from "@/constants";
 import { marginPaddingReset, truncate } from "@/styles";
 import { StyledTextProps } from "./types";
 
@@ -42,6 +42,7 @@ export const StyledTextWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  gap: 5px;
   font-size: 10px;
   letter-spacing: 0.5px;
   line-height: 12px;
@@ -64,10 +65,4 @@ export const StyledText = styled.p<StyledTextProps>`
 export const StyledDescription = styled.p`
   ${marginPaddingReset}
   ${truncate}
-`;
-
-export const StyledStickyWrapper = styled.div`
-  position: sticky;
-  left: ${leftColumnWidth + 16}px;
-  overflow: hidden;
 `;

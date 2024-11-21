@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { weekWidth, dayWidth, zoom2ColumnWidth } from "@/constants";
+import { weekWidth, dayWidth } from "@/constants";
 import { GetCalendarDateProps } from "./types";
 
 export const getCalendarDate = ({ calendarStartDate, position, zoom }: GetCalendarDateProps) => {
@@ -15,16 +15,9 @@ export const getCalendarDate = ({ calendarStartDate, position, zoom }: GetCalend
       timeUnit = "days";
       currBoxWidth = dayWidth;
       break;
-    case 2:
-      timeUnit = "hours";
-      currBoxWidth = zoom2ColumnWidth;
-      break;
   }
 
-  const column =
-    zoom === 2
-      ? Math.ceil((position - 0.5 * currBoxWidth) / currBoxWidth)
-      : Math.ceil(position / currBoxWidth);
+  const column = Math.ceil(position / currBoxWidth);
 
   const date = dayjs(
     `${calendarStartDate.year}-${calendarStartDate.month + 1}-${calendarStartDate.dayOfMonth}T${

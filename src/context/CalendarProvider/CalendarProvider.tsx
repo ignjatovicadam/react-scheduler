@@ -102,9 +102,6 @@ const CalendarProvider = ({
         case 1:
           offset = cols;
           break;
-        case 2:
-          offset = Math.ceil(cols / hoursInDay);
-          break;
       }
       const load = debounce(() => {
         switch (direction) {
@@ -156,9 +153,7 @@ const CalendarProvider = ({
   const handleGoNext = () => {
     if (isLoading) return;
 
-    setDate((prev) =>
-      zoom === 2 ? prev.add(zoom2ButtonJump, "hours") : prev.add(buttonWeeksJump, "weeks")
-    );
+    setDate((prev) => prev.add(buttonWeeksJump, "weeks"));
     onRangeChange?.(range);
   };
 
@@ -174,9 +169,7 @@ const CalendarProvider = ({
   const handleGoPrev = () => {
     if (isLoading) return;
 
-    setDate((prev) =>
-      zoom === 2 ? prev.subtract(zoom2ButtonJump, "hours") : prev.subtract(buttonWeeksJump, "weeks")
-    );
+    setDate((prev) => prev.subtract(buttonWeeksJump, "weeks"));
     onRangeChange?.(range);
   };
 

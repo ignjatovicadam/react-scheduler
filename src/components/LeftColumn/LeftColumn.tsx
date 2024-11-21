@@ -18,6 +18,9 @@ const LeftColumn: FC<LeftColumnProps> = ({
   return (
     <StyledWrapper>
       <StyledLeftColumnHeader>
+        <div className="classroom__edit">
+          <span>CLASSROOMS</span>
+        </div>
         <PaginationButton
           intent="previous"
           isVisible={pageNum !== 0}

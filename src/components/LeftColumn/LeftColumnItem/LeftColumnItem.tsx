@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Icon from "../../Icon";
 import {
   StyledText,
   StyledTextWrapper,
@@ -14,15 +15,23 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
   rows,
   seats,
   collapsed,
-  onItemClick,
   onRoomClick
 }) => {
   const onClick = () => onRoomClick(id);
 
   return (
-    <StyledWrapper rows={rows} clickable={typeof onItemClick === "function"} onClick={onClick}>
+    <StyledWrapper rows={rows} clickable={true} onClick={onClick}>
       <StyledRoomWrapper bgColor={item.bgColor}>
-        <StyledTextWrapper>{item.title}</StyledTextWrapper>
+        <StyledTextWrapper>
+          <span>{item.title}</span>
+          <Icon
+            iconName="chevronDown"
+            width="16"
+            height="16"
+            fill="0"
+            className={`rotate-icon ${collapsed ? "up" : ""}`}
+          />
+        </StyledTextWrapper>
       </StyledRoomWrapper>
       {seats.map((seat, i) => {
         if (collapsed) return null;

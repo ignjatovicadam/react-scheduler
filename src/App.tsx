@@ -2,7 +2,6 @@ import { useCallback, useState } from "react";
 import { mockDataWithSeats } from "./mock/appMockWithSeats";
 import { ParsedDatesRange } from "./utils/getDatesRange";
 import { ConfigFormValues, From, To, SchedulerData } from "./types/global";
-import ConfigPanel from "./components/ConfigPanel";
 import { StyledSchedulerFrame } from "./styles";
 import { Scheduler } from ".";
 
@@ -107,7 +106,6 @@ function App() {
 
   return (
     <>
-      <ConfigPanel values={values} onSubmit={setValues} />
       {isFullscreen ? (
         <Scheduler
           startDate={values.startDate ? new Date(values.startDate).toISOString() : undefined}

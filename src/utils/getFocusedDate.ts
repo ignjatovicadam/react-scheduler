@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { weekWidth, dayWidth, zoom2ColumnWidth } from "@/constants";
+import { weekWidth, dayWidth } from "@/constants";
 import { Day, ZoomLevel } from "@/types/global";
 
 export const getFocusedDate = (
@@ -21,16 +21,9 @@ export const getFocusedDate = (
       timeUnit = "days";
       currBoxWidth = dayWidth;
       break;
-    case 2:
-      timeUnit = "hours";
-      currBoxWidth = zoom2ColumnWidth;
-      break;
   }
 
-  const column =
-    zoom === 2
-      ? Math.ceil((position - 0.5 * currBoxWidth) / currBoxWidth)
-      : Math.ceil(position / currBoxWidth);
+  const column = Math.ceil(position / currBoxWidth);
 
   const startDay = dayjs(
     `${startDate.year}-${startDate.month + 1}-${startDate.dayOfMonth}T${startDate.hour}:00:00`

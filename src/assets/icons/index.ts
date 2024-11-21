@@ -5,6 +5,7 @@ import { ReactComponent as arrowLeft } from "./svgs/arrow-left.svg";
 import { ReactComponent as arrowRight } from "./svgs/arrow-right.svg";
 import { ReactComponent as defaultAvatar } from "./svgs/default-avatar.svg";
 import { ReactComponent as calendarWarning } from "./svgs/calendar-warning.svg";
+import { ReactComponent as chevronDown } from "./svgs/chevron-down.svg";
 import { ReactComponent as calendarFree } from "./svgs/calendar-free.svg";
 import { ReactComponent as arrowUp } from "./svgs/arrow-up.svg";
 import { ReactComponent as arrowDown } from "./svgs/arrow-down.svg";
@@ -22,6 +23,7 @@ const icons: { [key in IconsNames]: Icon } = {
   arrowRight,
   defaultAvatar,
   calendarWarning,
+  chevronDown,
   calendarFree,
   arrowDown,
   arrowUp,

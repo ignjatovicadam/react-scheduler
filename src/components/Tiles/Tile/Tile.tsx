@@ -5,7 +5,6 @@ import { getDatesRange } from "@/utils/getDatesRange";
 import { getTileProperties } from "@/utils/getTileProperties";
 import { getTileTextColor } from "@/utils/getTileTextColor";
 import {
-  StyledStickyWrapper,
   StyledText,
   StyledTextWrapper,
   StyledTileWrapper,
@@ -70,9 +69,7 @@ const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick, onItemR
       <StyledResizeButton className="left" onMouseDown={(e) => onResize(e, "left")} />
       <StyledInnerWrapper>
         <StyledTextWrapper>
-          <StyledStickyWrapper>
-            <StyledText bold>{data.title}</StyledText>
-          </StyledStickyWrapper>
+          <StyledText bold>{data.title}</StyledText>
         </StyledTextWrapper>
       </StyledInnerWrapper>
       <StyledResizeButton className="right" onMouseDown={(e) => onResize(e, "right")} />
