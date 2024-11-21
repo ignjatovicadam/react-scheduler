@@ -5,7 +5,13 @@ export type TilesProps = {
   data: PaginatedSchedulerData;
   rowsPerItem: number[];
   onTileClick?: (data: SchedulerProjectData) => void;
-  onItemResize: (roomId: string, seatId: string, tileId: string, start: Date, end: Date) => void;
+  onItemResize: (
+    roomId: string,
+    seatId: string,
+    tileId: string,
+    start: string,
+    end: string
+  ) => void;
 };
 
 export type PlacedTiles = JSX.Element[];

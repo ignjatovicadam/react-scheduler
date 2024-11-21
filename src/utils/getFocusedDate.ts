@@ -6,8 +6,8 @@ export const getFocusedDate = (
   startDate: Day,
   position: number,
   zoom: ZoomLevel,
-  start: Date,
-  end: Date
+  start: string,
+  end: string
 ) => {
   let timeUnit: dayjs.ManipulateType = "weeks";
   let currBoxWidth;
@@ -33,7 +33,7 @@ export const getFocusedDate = (
   const endDay = startDay.add(daysDifference, "day");
 
   return {
-    start: startDay.toDate(),
-    end: endDay.toDate()
+    start: startDay.toString(),
+    end: endDay.toString()
   };
 };

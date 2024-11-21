@@ -14,6 +14,8 @@ export type IconsNames =
   | "arrowDown"
   | "search"
   | "close"
+  | "letterM"
+  | "letterY"
   | "moon"
   | "sun";
 
