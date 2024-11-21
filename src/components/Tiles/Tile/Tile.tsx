@@ -71,6 +71,8 @@ const Tile: FC<TileProps> = ({ row, data, zoom, room, seat, onTileClick, onItemR
         <StyledTextWrapper>
           <StyledText bold>{data.title}</StyledText>
           {data.dateOfBirth && <StyledText>{data.dateOfBirth}</StyledText>}
+          {data.startDate && <StyledText>{data.startDate.toDateString()}</StyledText>}
+          {data.endDate && <StyledText>{data.endDate.toDateString()}</StyledText>}
         </StyledTextWrapper>
       </StyledInnerWrapper>
       <StyledResizeButton className="right" onMouseDown={(e) => onResize(e, "right")} />
