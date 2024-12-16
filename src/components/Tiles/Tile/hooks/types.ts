@@ -1,20 +1,21 @@
-import { Day, ZoomLevel } from "@/types/global";
+import {
+  Day,
+  ZoomLevel,
+  PaginatedSchedulerRow,
+  PaginatedSchedulerRowSeats,
+  OnItemResizeProps
+} from "@/types/global";
 
 export type useResizeProps = {
   tileWidth: number;
   tilePositionX: number;
-  tileStartDate: string;
-  tileEndDate: string;
+  tileStartDate: string | null;
+  tileEndDate: string | null;
   tileId: string;
+  name: string;
   calendarStartDate: Day;
   zoom: ZoomLevel;
-  roomId: string;
-  seatId: string;
-  onItemResize: (
-    roomId: string,
-    seatId: string,
-    tileId: string,
-    start: string,
-    end: string
-  ) => void;
+  room: PaginatedSchedulerRow;
+  seat: PaginatedSchedulerRowSeats;
+  onItemResize: (data: OnItemResizeProps) => void;
 };

@@ -4,7 +4,7 @@ import { getFocusedDate } from "@/utils/getFocusedDate";
 import { DropZoneProps } from "./types";
 import { StyledDropZone } from "./styles";
 
-const DropZone: FC<DropZoneProps> = ({ topPosition, roomId, seatId, zoom, height, onItemDrop }) => {
+const DropZone: FC<DropZoneProps> = ({ topPosition, room, seat, zoom, height, onItemDrop }) => {
   const { startDate } = useCalendar();
   const [isDraggedOver, setIsDraggedOver] = useState(false);
 
@@ -14,19 +14,26 @@ const DropZone: FC<DropZoneProps> = ({ topPosition, roomId, seatId, zoom, height
       const dropZoneRect = event.currentTarget.getBoundingClientRect();
       const position = event.clientX - dropZoneRect.left;
 
-      const date = getFocusedDate(startDate, position, zoom, item.fromStart, item.fromEnd);
+      const date = getFocusedDate(startDate, position, zoom, item.oldStartDate, item.oldEndDate);
 
-      onItemDrop(item, {
-        toRoom: roomId,
-        toSeat: seatId,
-        id: item.id,
-        start: date.start,
-        end: date.end
-      });
+      const model = {
+        ...item,
+        newRoom: {
+          id: room.id,
+          name: room.label.title
+        },
+        newSeat: {
+          id: seat.id,
+          name: seat.label.title
+        },
+        newStartDate: date.start,
+        newEndDate: date.end
+      };
 
+      onItemDrop(model);
       setIsDraggedOver(false);
     },
-    [zoom, startDate, onItemDrop, roomId, seatId]
+    [zoom, startDate, onItemDrop, room, seat]
   );
 
   const handleDragEnter = () => setIsDraggedOver(true);

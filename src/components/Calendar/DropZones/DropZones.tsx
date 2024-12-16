@@ -20,8 +20,8 @@ const DropZones: FC<DropZonesProps> = ({ data, rowsPerItem, zoom, onItemDrop }) 
           <DropZone
             key={`${seat.id}-${pointer + rows}`}
             topPosition={topPosition}
-            roomId={room.id}
-            seatId={seat.id}
+            room={room}
+            seat={seat}
             height={height}
             zoom={zoom}
             onItemDrop={onItemDrop}

@@ -9,10 +9,11 @@ export const useResize = ({
   tileStartDate,
   tileEndDate,
   tileId,
+  name,
   calendarStartDate,
   zoom,
-  roomId,
-  seatId,
+  room,
+  seat,
   onItemResize
 }: useResizeProps) => {
   const tile = useRef<HTMLButtonElement>(null);
@@ -32,23 +33,57 @@ export const useResize = ({
 
   const onMouseUp = () => {
     if (currentResizeDirection.current === "right") {
-      const date = getCalendarDate({
+      const endDate = getCalendarDate({
         calendarStartDate,
         position: tilePositionX + currentTileWidth.current,
         zoom
       });
 
-      onItemResize(roomId, seatId, tileId, tileStartDate, date);
+      const model = {
+        id: tileId,
+        name: name,
+        seat: {
+          id: seat.id,
+          name: seat.label.title
+        },
+        room: {
+          id: room.id,
+          name: room.label.title
+        },
+        oldStartDate: tileStartDate,
+        oldEndDate: tileEndDate,
+        newStartDate: null,
+        newEndDate: endDate
+      };
+
+      onItemResize(model);
     }
 
     if (currentResizeDirection.current === "left") {
-      const date = getCalendarDate({
+      const startDate = getCalendarDate({
         calendarStartDate,
         position: currentTileLeftProp.current,
         zoom
       });
 
-      onItemResize(roomId, seatId, tileId, date, tileEndDate);
+      const model = {
+        id: tileId,
+        name: name,
+        seat: {
+          id: seat.id,
+          name: seat.label.title
+        },
+        room: {
+          id: room.id,
+          name: room.label.title
+        },
+        oldStartDate: tileStartDate,
+        oldEndDate: tileEndDate,
+        newStartDate: startDate,
+        newEndDate: null
+      };
+
+      onItemResize(model);
     }
 
     window.removeEventListener("mousemove", onMouseMove);

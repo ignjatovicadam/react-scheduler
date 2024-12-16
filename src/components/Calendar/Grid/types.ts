@@ -1,4 +1,10 @@
-import { PaginatedSchedulerData, SchedulerProjectData, From, To, ZoomLevel } from "@/types/global";
+import {
+  PaginatedSchedulerData,
+  SchedulerProjectData,
+  OnItemDropProps,
+  ZoomLevel,
+  OnItemResizeProps
+} from "@/types/global";
 
 export type GridProps = {
   zoom: ZoomLevel;
@@ -6,14 +12,8 @@ export type GridProps = {
   data: PaginatedSchedulerData;
   rowsPerItem: number[];
   onTileClick?: (data: SchedulerProjectData) => void;
-  onItemDrop: (from: From, to: To) => void;
-  onItemResize: (
-    roomId: string,
-    seatId: string,
-    tileId: string,
-    start: string,
-    end: string
-  ) => void;
+  onItemDrop: (data: OnItemDropProps) => void;
+  onItemResize: (data: OnItemResizeProps) => void;
   onCommentClick: (data: SchedulerProjectData) => void;
 };
 

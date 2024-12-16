@@ -3,9 +3,7 @@ import styled, { createGlobalStyle, type DefaultTheme } from "styled-components"
 export const prefixId = "reactSchedulerOutsideWrapper";
 
 export const GlobalStyle = createGlobalStyle`
-
   #${prefixId} {
-    font-family: 'Inter', sans-serif;
     box-sizing: border-box;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
@@ -61,7 +59,7 @@ export const theme: DefaultTheme = {
     placeholder: "#777777",
 
     button: "#FFFFFF",
-    border: "#D2D2D2",
+    border: "#DEDEDE",
     tooltip: "#3B3C5F",
     hover: "#E6F3FF",
     disabled: "#777777",

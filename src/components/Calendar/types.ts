@@ -2,8 +2,8 @@ import {
   SchedulerData,
   SchedulerItemClickData,
   SchedulerProjectData,
-  From,
-  To
+  OnItemDropProps,
+  OnItemResizeProps
 } from "@/types/global";
 
 export type CalendarProps = {
@@ -11,17 +11,12 @@ export type CalendarProps = {
   topBarWidth: number;
   onTileClick?: (data: SchedulerProjectData) => void;
   onItemClick?: (data: SchedulerItemClickData) => void;
-  onItemDrop: (from: From, to: To) => void;
-  onItemResize: (
-    roomId: string,
-    seatId: string,
-    tileId: string,
-    start: string,
-    end: string
-  ) => void;
+  onItemDrop: (data: OnItemDropProps) => void;
+  onItemResize: (data: OnItemResizeProps) => void;
   onRoomClick: (id: string) => void;
   toggleTheme?: () => void;
   onCommentClick: (data: SchedulerProjectData) => void;
+  openHistory: () => void;
 };
 
 export type StyledSpanProps = {

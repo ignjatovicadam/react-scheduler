@@ -44,20 +44,28 @@ const Tile: FC<TileProps> = ({
     tileStartDate: data.startDate,
     tileEndDate: data.endDate,
     tileId: data.id,
+    name: data.title,
     calendarStartDate: startDate,
     zoom,
-    roomId: room,
-    seatId: seat,
+    room,
+    seat,
     onItemResize
   });
 
   const onDrag = (event: DragEvent<HTMLButtonElement>) => {
     const m = {
       id: data.id,
-      fromRoom: room,
-      fromSeat: seat,
-      fromStart: data.startDate,
-      fromEnd: data.endDate
+      name: data.title,
+      oldSeat: {
+        id: seat.id,
+        name: seat.label.title
+      },
+      oldRoom: {
+        id: room.id,
+        name: room.label.title
+      },
+      oldStartDate: data.startDate,
+      oldEndDate: data.endDate
     };
     event.dataTransfer.setData("application/json", JSON.stringify(m));
   };

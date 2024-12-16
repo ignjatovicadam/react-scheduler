@@ -24,7 +24,7 @@ export const StyledResizeButton = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 10px;
+  width: 30px;
   height: 100%;
   cursor: ew-resize;
   z-index: 10;
@@ -39,7 +39,7 @@ export const StyledResizeButton = styled.div`
 `;
 
 export const StyledTextWrapper = styled.div`
-  position: relative;
+  position: sticky;
   display: flex;
   align-items: center;
   gap: 5px;

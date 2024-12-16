@@ -1,10 +1,15 @@
-import { From, To, ZoomLevel } from "@/types/global";
+import {
+  OnItemDropProps,
+  ZoomLevel,
+  PaginatedSchedulerRow,
+  PaginatedSchedulerRowSeats
+} from "@/types/global";
 
 export type DropZoneProps = {
   topPosition: number;
-  roomId: string;
-  seatId: string;
+  room: PaginatedSchedulerRow;
+  seat: PaginatedSchedulerRowSeats;
   zoom: ZoomLevel;
   height: number;
-  onItemDrop: (from: From, to: To) => void;
+  onItemDrop: (data: OnItemDropProps) => void;
 };

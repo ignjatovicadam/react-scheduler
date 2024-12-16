@@ -3,8 +3,8 @@ import {
   SchedulerData,
   SchedulerItemClickData,
   SchedulerProjectData,
-  From,
-  To
+  OnItemDropProps,
+  OnItemResizeProps
 } from "@/types/global";
 import { ParsedDatesRange } from "@/utils/getDatesRange";
 
@@ -19,16 +19,11 @@ export type SchedulerProps = {
   onFilterData?: () => void;
   onClearFilterData?: () => void;
   onItemClick?: (data: SchedulerItemClickData) => void;
-  onItemDrop: (from: From, to: To) => void;
-  onItemResize: (
-    roomId: string,
-    seatId: string,
-    tileId: string,
-    start: string,
-    end: string
-  ) => void;
+  onItemDrop: (data: OnItemDropProps) => void;
+  onItemResize: (data: OnItemResizeProps) => void;
   onRoomClick: (id: string) => void;
   onCommentClick: (data: SchedulerProjectData) => void;
+  openHistory: () => void;
 };
 
 export type StyledOutsideWrapperProps = {

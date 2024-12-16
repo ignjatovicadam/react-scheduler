@@ -1,19 +1,19 @@
-import { SchedulerProjectData, ZoomLevel } from "@/types/global";
+import {
+  SchedulerProjectData,
+  ZoomLevel,
+  PaginatedSchedulerRow,
+  PaginatedSchedulerRowSeats,
+  OnItemResizeProps
+} from "@/types/global";
 
 export type TileProps = {
   row: number;
   data: SchedulerProjectData;
   zoom: ZoomLevel;
-  room: string;
-  seat: string;
+  room: PaginatedSchedulerRow;
+  seat: PaginatedSchedulerRowSeats;
   onTileClick?: (data: SchedulerProjectData) => void;
-  onItemResize: (
-    roomId: string,
-    seatId: string,
-    tileId: string,
-    start: string,
-    end: string
-  ) => void;
+  onItemResize: (data: OnItemResizeProps) => void;
   onCommentClick: (data: SchedulerProjectData) => void;
 };
 

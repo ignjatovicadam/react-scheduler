@@ -1,12 +1,12 @@
 import { useTheme } from "styled-components";
 import { FC } from "react";
-import { Icon, IconButton, Toggle } from "@/components";
+import { Icon, IconButton } from "@/components";
 import { useCalendar } from "@/context/CalendarProvider";
 import { useLanguage } from "@/context/LocaleProvider";
 import { NavigationWrapper, Wrapper, NavBtn, Today, Zoom, OptionsContainer } from "./styles";
 import { TopbarProps } from "./types";
 
-const Topbar: FC<TopbarProps> = ({ width, showThemeToggle, toggleTheme }) => {
+const Topbar: FC<TopbarProps> = ({ width, showThemeToggle, toggleTheme, openHistory }) => {
   const { topbar } = useLanguage();
   const {
     data,
@@ -34,9 +34,8 @@ const Topbar: FC<TopbarProps> = ({ width, showThemeToggle, toggleTheme }) => {
         </NavBtn>
       </NavigationWrapper>
       <OptionsContainer>
-        {showThemeToggle && <Toggle toggleTheme={toggleTheme} />}
+        <IconButton onClick={openHistory} isFullRounded iconName="arrowRight" width="14" />
         <Zoom>
-          {topbar.view}
           <IconButton
             isDisabled={!isPrevZoom}
             onClick={zoomOut}

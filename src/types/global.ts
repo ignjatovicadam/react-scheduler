@@ -12,16 +12,16 @@ export type ZoomLevel = ZoomLevelTuple[number];
 export type LangCodes = "en" | "pl" | "de" | "lt";
 
 export type From = {
-  fromRoom: string;
-  fromSeat: string;
+  fromRoom: SchedulerRow;
+  fromSeat: SchedulerRowSeats;
   start: string;
   end: string;
   id: string;
 };
 
 export type To = {
-  toRoom: string;
-  toSeat: string;
+  toRoom: PaginatedSchedulerRow;
+  toSeat: PaginatedSchedulerRowSeats;
   start: string;
   end: string;
   id?: string;
@@ -120,11 +120,11 @@ export type SchedulerProjectData = {
   /**
    * Represents start date of from which tile will render
    */
-  startDate: string;
+  startDate: string | null;
   /**
    * Represents end date to which tile will render
    */
-  endDate: string;
+  endDate: string | null;
   /**
    * Indicates how much time is spent per day. Given in seconds and converted by Scheduler to hours/minutes
    */
@@ -224,4 +224,46 @@ export type TooltipData = {
   coords: Coords;
   resourceIndex: number;
   disposition: OccupancyData;
+};
+
+export type OnItemResizeProps = {
+  id: string;
+  name: string;
+  seat: {
+    id: string;
+    name: string;
+  };
+  room: {
+    id: string;
+    name: string;
+  };
+  oldStartDate: string | null;
+  oldEndDate: string | null;
+  newStartDate: string | null;
+  newEndDate: string | null;
+};
+
+export type OnItemDropProps = {
+  id: string;
+  name: string;
+  oldSeat: {
+    id: string;
+    name: string;
+  };
+  oldRoom: {
+    id: string;
+    name: string;
+  };
+  oldStartDate: string | null;
+  oldEndDate: string | null;
+  newRoom: {
+    id: string;
+    name: string;
+  };
+  newSeat: {
+    id: string;
+    name: string;
+  };
+  newStartDate: string | null;
+  newEndDate: string | null;
 };

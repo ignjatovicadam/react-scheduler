@@ -1,7 +1,13 @@
 import { useCallback, useState } from "react";
 import { mockDataWithSeats } from "./mock/appMockWithSeats";
 import { ParsedDatesRange } from "./utils/getDatesRange";
-import { ConfigFormValues, From, To, SchedulerData, SchedulerProjectData } from "./types/global";
+import {
+  ConfigFormValues,
+  OnItemDropProps,
+  SchedulerData,
+  SchedulerProjectData,
+  OnItemResizeProps
+} from "./types/global";
 import { StyledSchedulerFrame } from "./styles";
 import { Scheduler } from ".";
 
@@ -24,35 +30,35 @@ function App() {
 
   const handleRangeChange = useCallback((range: ParsedDatesRange) => setRange(range), []);
 
-  const onItemResize = (
-    roomId: string,
-    seatId: string,
-    tileId: string,
-    start: string,
-    end: string
-  ) => {
+  const openHistory = () => {};
+
+  const onItemResize = (dto: OnItemResizeProps) => {
     setData((prevData) =>
-      prevData.map((room) => {
-        if (room.id === roomId) {
+      prevData.map((roomOld) => {
+        if (roomOld.id === dto.room.id) {
           return {
-            ...room,
-            seats: room.seats.map((seat) => {
-              if (seat.id === seatId) {
+            ...roomOld,
+            seats: roomOld.seats.map((seatOld) => {
+              if (seatOld.id === dto.seat.id) {
                 return {
-                  ...seat,
-                  data: seat.data.map((tile) => {
-                    if (tile.id === tileId) {
-                      return { ...tile, startDate: start, endDate: end };
+                  ...seatOld,
+                  data: seatOld.data.map((tile) => {
+                    if (tile.id === dto.id) {
+                      return {
+                        ...tile,
+                        startDate: dto.newStartDate ? dto.newStartDate : dto.oldStartDate,
+                        endDate: dto.newEndDate ? dto.newEndDate : dto.oldEndDate
+                      };
                     }
                     return tile;
                   })
                 };
               }
-              return seat;
+              return seatOld;
             })
           };
         }
-        return room;
+        return roomOld;
       })
     );
   };
@@ -76,32 +82,41 @@ function App() {
     console.log(data);
   };
 
-  const onItemDrop = (from: From, to: To) => {
+  const onItemDrop = (dto: OnItemDropProps) => {
     setData((prevData) => {
+      const currentItem = prevData
+        .find((room) => room.id === dto.oldRoom.id)
+        ?.seats.find((seat) => seat.id === dto.oldSeat.id)
+        ?.data.find((item) => item.id === dto.id);
+
+      if (!currentItem) {
+        return prevData;
+      }
+
       return prevData.map((room) => {
-        if (room.id === from.fromRoom || room.id === to.toRoom) {
+        if (room.id === dto.oldRoom.id || room.id === dto.newRoom.id) {
           return {
             ...room,
             seats: room.seats.map((seat) => {
-              if (room.id === from.fromRoom && seat.id === from.fromSeat) {
+              if (room.id === dto.oldRoom.id && seat.id === dto.oldSeat.id) {
                 return {
                   ...seat,
-                  data: seat.data.filter((item) => item.id !== from.id)
+                  data: seat.data.filter((item) => item.id !== dto.id)
                 };
               }
 
-              if (room.id === to.toRoom && seat.id === to.toSeat) {
-                const currentItem = prevData
-                  .find((r) => r.id === from.fromRoom)
-                  ?.seats.find((s) => s.id === from.fromSeat)
-                  ?.data.find((item) => item.id === from.id);
-
-                if (currentItem) {
-                  return {
-                    ...seat,
-                    data: [...seat.data, { ...currentItem, startDate: to.start, endDate: to.end }]
-                  };
-                }
+              if (room.id === dto.newRoom.id && seat.id === dto.newSeat.id) {
+                return {
+                  ...seat,
+                  data: [
+                    ...seat.data,
+                    {
+                      ...currentItem,
+                      startDate: dto.newStartDate,
+                      endDate: dto.newEndDate
+                    }
+                  ]
+                };
               }
 
               return seat;
@@ -129,6 +144,7 @@ function App() {
           onItemResize={onItemResize}
           onRoomClick={onRoomClick}
           onCommentClick={onCommentClick}
+          openHistory={openHistory}
         />
       ) : (
         <StyledSchedulerFrame>
@@ -143,6 +159,7 @@ function App() {
             onItemResize={onItemResize}
             onRoomClick={onRoomClick}
             onCommentClick={onCommentClick}
+            openHistory={openHistory}
           />
         </StyledSchedulerFrame>
       )}
