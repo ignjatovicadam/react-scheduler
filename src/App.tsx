@@ -113,7 +113,8 @@ function App() {
                     {
                       ...currentItem,
                       startDate: dto.newStartDate,
-                      endDate: dto.newEndDate
+                      endDate: dto.newEndDate,
+                      bgColor: "rgb(254,165,177)"
                     }
                   ]
                 };

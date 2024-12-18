@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { IconChevronDown } from "@tabler/icons-react";
 import Icon from "../../Icon";
 import {
   StyledText,
@@ -20,23 +21,17 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
   const onClick = () => onRoomClick(id);
 
   return (
-    <StyledWrapper rows={rows} clickable={true} onClick={onClick}>
+    <StyledWrapper rows={rows} clickable={true} onClick={onClick} className="scheduler-room">
       <StyledRoomWrapper bgColor={item.bgColor}>
         <StyledTextWrapper>
           <span>{item.title}</span>
-          <Icon
-            iconName="chevronDown"
-            width="16"
-            height="16"
-            fill="0"
-            className={`rotate-icon ${collapsed ? "up" : ""}`}
-          />
+          <IconChevronDown size={20} className={`rotate-icon ${collapsed ? "up" : ""}`} />
         </StyledTextWrapper>
       </StyledRoomWrapper>
       {seats.map((seat, i) => {
         if (collapsed) return null;
         return (
-          <StyledSeatWrapper rows={seat.data.length} key={i}>
+          <StyledSeatWrapper rows={seat.data.length} key={i} className="scheduler-seat">
             <StyledText>{seat.label.title}</StyledText>
           </StyledSeatWrapper>
         );

@@ -69,7 +69,6 @@ export const StyledCommentButton = styled.div`
   border: none;
   font-size: 10px;
   color: white;
-  text-decoration: underline;
   cursor: pointer;
   padding: 0;
 `;

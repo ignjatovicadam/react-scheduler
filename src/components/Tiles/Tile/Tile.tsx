@@ -1,4 +1,5 @@
 import { DragEvent, FC } from "react";
+import { IconArrowsHorizontal, IconMessagePlus } from "@tabler/icons-react";
 import { useTheme } from "styled-components";
 import { useCalendar } from "@/context/CalendarProvider";
 import { getDatesRange } from "@/utils/getDatesRange";
@@ -85,12 +86,13 @@ const Tile: FC<TileProps> = ({
         top: `${y}px`,
         backgroundColor: `${data.bgColor ?? colors.defaultTile}`,
         width: `${width}px`,
-        color: getTileTextColor(data.bgColor ?? "")
+        color: getTileTextColor(data.bgColor ?? ""),
+        transition: "background-color 1s ease-in-out"
       }}
       onDragStart={onDrag}
       onClick={() => onTileClick?.(data)}>
       <StyledResizeButton className="left" onMouseDown={(e) => onResize(e, "left")}>
-        <Icon iconName="arrowLeft" height="15" fill={"white"} />
+        <IconArrowsHorizontal size={15} />
       </StyledResizeButton>
       <StyledInnerWrapper>
         <StyledTextWrapper>
@@ -98,11 +100,13 @@ const Tile: FC<TileProps> = ({
           {data.dateOfBirth && <StyledText>{data.dateOfBirth}</StyledText>}
           {data.startDate && <StyledText>{data.startDate}</StyledText>}
           {data.endDate && <StyledText>{data.endDate}</StyledText>}
-          <StyledCommentButton onClick={onCommentButtonClick}>Comments</StyledCommentButton>
+          <StyledCommentButton onClick={onCommentButtonClick}>
+            <IconMessagePlus size={15} />
+          </StyledCommentButton>
         </StyledTextWrapper>
       </StyledInnerWrapper>
       <StyledResizeButton className="right" onMouseDown={(e) => onResize(e, "right")}>
-        <Icon iconName="arrowRight" height="15" fill={"white"} />
+        <IconArrowsHorizontal size={15} />
       </StyledResizeButton>
     </StyledTileWrapper>
   );
