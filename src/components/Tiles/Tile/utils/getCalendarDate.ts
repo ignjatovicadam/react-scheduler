@@ -25,5 +25,5 @@ export const getCalendarDate = ({ calendarStartDate, position, zoom }: GetCalend
     }:00:00`
   ).add(column - 1, timeUnit);
 
-  return date.toString();
+  return date.format("MM/DD/YY");
 };

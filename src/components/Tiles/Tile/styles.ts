@@ -22,10 +22,12 @@ export const StyledInnerWrapper = styled.div`
 
 export const StyledResizeButton = styled.div`
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 0;
   bottom: 0;
   width: 30px;
-  height: 100%;
   cursor: ew-resize;
   z-index: 10;
 
@@ -46,7 +48,7 @@ export const StyledTextWrapper = styled.div`
   font-size: 10px;
   letter-spacing: 0.5px;
   line-height: 12px;
-  padding: 0px 15px;
+  padding: 0px 35px;
 `;
 
 export const StyledText = styled.p<StyledTextProps>`
@@ -66,7 +68,7 @@ export const StyledCommentButton = styled.div`
   background: none;
   border: none;
   font-size: 10px;
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: white;
   text-decoration: underline;
   cursor: pointer;
   padding: 0;

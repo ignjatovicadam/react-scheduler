@@ -33,7 +33,7 @@ export const getFocusedDate = (
   const endDay = startDay.add(daysDifference, "day");
 
   return {
-    start: startDay.toString(),
-    end: endDay.toString()
+    start: startDay.format("MM/DD/YY"),
+    end: endDay.format("MM/DD/YY")
   };
 };

@@ -4,6 +4,7 @@ import { useCalendar } from "@/context/CalendarProvider";
 import { getDatesRange } from "@/utils/getDatesRange";
 import { getTileProperties } from "@/utils/getTileProperties";
 import { getTileTextColor } from "@/utils/getTileTextColor";
+import { Icon } from "@/components";
 import {
   StyledText,
   StyledTextWrapper,
@@ -88,17 +89,21 @@ const Tile: FC<TileProps> = ({
       }}
       onDragStart={onDrag}
       onClick={() => onTileClick?.(data)}>
-      <StyledResizeButton className="left" onMouseDown={(e) => onResize(e, "left")} />
+      <StyledResizeButton className="left" onMouseDown={(e) => onResize(e, "left")}>
+        <Icon iconName="arrowLeft" height="15" fill={"white"} />
+      </StyledResizeButton>
       <StyledInnerWrapper>
         <StyledTextWrapper>
           <StyledText bold>{data.title}</StyledText>
           {data.dateOfBirth && <StyledText>{data.dateOfBirth}</StyledText>}
           {data.startDate && <StyledText>{data.startDate}</StyledText>}
           {data.endDate && <StyledText>{data.endDate}</StyledText>}
-          <StyledCommentButton onClick={onCommentButtonClick}>Comment</StyledCommentButton>
+          <StyledCommentButton onClick={onCommentButtonClick}>Comments</StyledCommentButton>
         </StyledTextWrapper>
       </StyledInnerWrapper>
-      <StyledResizeButton className="right" onMouseDown={(e) => onResize(e, "right")} />
+      <StyledResizeButton className="right" onMouseDown={(e) => onResize(e, "right")}>
+        <Icon iconName="arrowRight" height="15" fill={"white"} />
+      </StyledResizeButton>
     </StyledTileWrapper>
   );
 };
