@@ -7,13 +7,13 @@ export const StyledTileWrapper = styled.button<{ ref: React.RefObject<HTMLButton
   ${marginPaddingReset}
   height: ${tileHeight}px;
   position: absolute;
-  z-index: 9;
   outline: none;
   border: none;
   border-radius: 20px;
   text-align: left;
   color: ${({ theme }) => theme.colors.textPrimary};
   cursor: pointer;
+  box-shadow: 0px 4px 4px 0px #00000040;
 `;
 
 export const StyledInnerWrapper = styled.div`
@@ -56,6 +56,7 @@ export const StyledText = styled.p<StyledTextProps>`
   ${truncate}
   display: inline;
   font-weight: ${({ bold }) => (bold ? "600" : "400")};
+  text-transform: uppercase;
   &::after {
     content: "|";
     margin: 0 3px;

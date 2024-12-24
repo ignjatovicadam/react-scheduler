@@ -267,3 +267,11 @@ export type OnItemDropProps = {
   newStartDate: string | null;
   newEndDate: string | null;
 };
+
+export type OnAddSeatProps = {
+  room: {
+    id: string;
+    name: string;
+  };
+  length: number;
+};

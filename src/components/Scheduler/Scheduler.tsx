@@ -25,6 +25,7 @@ const Scheduler = ({
   onRoomClick,
   onCommentClick,
   openHistory,
+  onAddSeat,
   isLoading
 }: SchedulerProps) => {
   const appConfig: Config = useMemo(
@@ -95,6 +96,7 @@ const Scheduler = ({
                   onItemResize={onItemResize}
                   onRoomClick={onRoomClick}
                   onCommentClick={onCommentClick}
+                  onAddSeat={onAddSeat}
                   openHistory={openHistory}
                 />
               </StyledInnerWrapper>

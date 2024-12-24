@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useEffect, useRef } from "react";
+import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import { useTheme } from "styled-components";
 import { drawGrid } from "@/utils/drawGrid/drawGrid";
 import { boxHeight, canvasWrapperId, leftColumnWidth, outsideWrapperId } from "@/constants";
@@ -20,6 +20,11 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
   const refLeft = useRef<HTMLSpanElement>(null);
 
   const theme = useTheme();
+
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleDragStart = () => setIsDragging(true);
+  const handleDragEnd = () => setIsDragging(false);
 
   const handleResize = useCallback(
     (ctx: CanvasRenderingContext2D) => {
@@ -92,6 +97,9 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
           onTileClick={onTileClick}
           onItemResize={onItemResize}
           onCommentClick={onCommentClick}
+          isDragging={isDragging}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
         />
         <StyledSpan ref={refRight} position="right" />
         <Loader isLoading={isLoading} position="right" />

@@ -9,21 +9,28 @@ import {
 
 export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
   display: flex;
+  position: relative;
   align-items: ${({ rows }) => (rows > 1 ? "start" : "center")};
   flex-direction: column;
+  overflow: hidden;
   width: 100%;
   min-height: ${boxHeight}px;
   height: calc(${boxHeight}px * ${({ rows }) => rows});
   transition: height 0.6s ease-in-out;
-  cursor: ${({ clickable }) => (clickable ? "pointer" : "auto")};
 `;
 
 export const StyledRoomWrapper = styled.div<StyledRoomWrapperProps>`
   min-height: ${boxHeight}px;
   height: ${boxHeight}px;
   width: 100%;
-  padding: 0.813rem 0 0 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
   background-color: ${({ bgColor }) => bgColor};
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const StyledSeatWrapper = styled.div<StyledSeatWrapperProps>`
@@ -31,7 +38,10 @@ export const StyledSeatWrapper = styled.div<StyledSeatWrapperProps>`
   height: calc(${boxHeight}px * ${({ rows }) => rows});
   width: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors.border};
-  padding: 0.813rem 0 0 1rem;
+  padding: 0 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
 
 export const StyledInnerWrapper = styled.div`
@@ -81,9 +91,24 @@ export const StyledText = styled.p<StyledTextProps>`
   line-height: ${({ isMain }) => (isMain ? 1.125 + "rem" : 0.75 + "rem")};
   color: ${({ isMain, theme }) => (isMain ? theme.colors.textPrimary : theme.colors.placeholder)};
   text-overflow: ellipsis;
-  display: inline-block;
   max-width: 144px;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
+`;
+
+export const StyledPlusButton = styled.div`
+  position: absolute;
+  bottom: -8px;
+  right: 0.3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 22px;
+  width: 22px;
+  background: #d9d9d9;
+  padding: 2px 3px;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;

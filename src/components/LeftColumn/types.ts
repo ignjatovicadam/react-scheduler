@@ -1,4 +1,4 @@
-import { PaginatedSchedulerData, SchedulerItemClickData } from "@/types/global";
+import { PaginatedSchedulerData, SchedulerItemClickData, OnAddSeatProps } from "@/types/global";
 
 export type LeftColumnProps = {
   data: PaginatedSchedulerData;
@@ -11,6 +11,7 @@ export type LeftColumnProps = {
   onSearchInputChange: React.ChangeEventHandler<HTMLInputElement>;
   onItemClick?: (data: SchedulerItemClickData) => void;
   onRoomClick: (id: string) => void;
+  onAddSeat: (data: OnAddSeatProps) => void;
 };
 
 export type StyledInputWrapperProps = {

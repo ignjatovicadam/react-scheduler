@@ -8,7 +8,10 @@ const Tiles: FC<TilesProps> = ({
   rowsPerItem,
   onTileClick,
   onItemResize,
-  onCommentClick
+  onCommentClick,
+  isDragging,
+  onDragStart,
+  onDragEnd
 }) => {
   const placeTiles = useCallback((): PlacedTiles => {
     let rows = 0;
@@ -33,13 +36,16 @@ const Tiles: FC<TilesProps> = ({
                 onTileClick={onTileClick}
                 onItemResize={onItemResize}
                 onCommentClick={onCommentClick}
+                isDragging={isDragging}
+                onDragStart={onDragStart}
+                onDragEnd={onDragEnd}
               />
             ))
           );
         });
       })
       .flat(2);
-  }, [data, rowsPerItem, onTileClick, onItemResize, onCommentClick, zoom]);
+  }, [data, rowsPerItem, onTileClick, onItemResize, onCommentClick, isDragging, zoom]);
 
   return <>{placeTiles()}</>;
 };

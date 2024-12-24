@@ -5,7 +5,6 @@ import { useCalendar } from "@/context/CalendarProvider";
 import { getDatesRange } from "@/utils/getDatesRange";
 import { getTileProperties } from "@/utils/getTileProperties";
 import { getTileTextColor } from "@/utils/getTileTextColor";
-import { Icon } from "@/components";
 import {
   StyledText,
   StyledTextWrapper,
@@ -25,7 +24,10 @@ const Tile: FC<TileProps> = ({
   seat,
   onTileClick,
   onItemResize,
-  onCommentClick
+  onCommentClick,
+  isDragging,
+  onDragStart,
+  onDragEnd
 }) => {
   const { date, startDate } = useCalendar();
   const { colors } = useTheme();
@@ -55,6 +57,8 @@ const Tile: FC<TileProps> = ({
   });
 
   const onDrag = (event: DragEvent<HTMLButtonElement>) => {
+    onDragStart();
+
     const m = {
       id: data.id,
       name: data.title,
@@ -87,9 +91,11 @@ const Tile: FC<TileProps> = ({
         backgroundColor: `${data.bgColor ?? colors.defaultTile}`,
         width: `${width}px`,
         color: getTileTextColor(data.bgColor ?? ""),
-        transition: "background-color 1s ease-in-out"
+        transition: "background-color 1s ease-in-out",
+        zIndex: isDragging ? 7 : 9
       }}
       onDragStart={onDrag}
+      onDragEnd={() => onDragEnd()}
       onClick={() => onTileClick?.(data)}>
       <StyledResizeButton className="left" onMouseDown={(e) => onResize(e, "left")}>
         <IconArrowsHorizontal size={15} />

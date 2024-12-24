@@ -6,7 +6,7 @@ export const headerWeekHeight = 24;
 export const headerDayHeight = 40;
 export const headerHeight = headerDayHeight + headerWeekHeight + headerMonthHeight;
 export const weekWidth = 46;
-export const boxHeight = 45;
+export const boxHeight = 28;
 export const leftColumnWidth = 150;
 export const singleDayWidth = 6.57;
 export const zoom2ColumnWidth = 50;
@@ -35,7 +35,7 @@ export const canvasHeaderWrapperId = "reactSchedulerCanvasHeaderWrapper";
 export const canvasWrapperId = "reactSchedulerCanvasWrapper";
 export const outsideWrapperId = prefixId;
 export const tileYOffset = 4;
-export const tileHeight = 20;
+export const tileHeight = 19;
 export const formFieldsIds = {
   peopleCount: "peopleCount",
   projectsPerYear: "projectsPerYear",

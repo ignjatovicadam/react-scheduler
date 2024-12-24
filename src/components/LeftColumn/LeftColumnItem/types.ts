@@ -1,7 +1,8 @@
 import {
   SchedulerItemClickData,
   SchedulerRowLabel,
-  PaginatedSchedulerRowSeats
+  PaginatedSchedulerRowSeats,
+  OnAddSeatProps
 } from "@/types/global";
 
 export type LeftColumnItemProps = {
@@ -12,6 +13,7 @@ export type LeftColumnItemProps = {
   collapsed: boolean;
   onItemClick?: (data: SchedulerItemClickData) => void;
   onRoomClick: (id: string) => void;
+  onAddSeat: (data: OnAddSeatProps) => void;
 };
 
 export type StyledTextProps = {

@@ -4,7 +4,8 @@ import {
   SchedulerItemClickData,
   SchedulerProjectData,
   OnItemDropProps,
-  OnItemResizeProps
+  OnItemResizeProps,
+  OnAddSeatProps
 } from "@/types/global";
 import { ParsedDatesRange } from "@/utils/getDatesRange";
 
@@ -23,6 +24,7 @@ export type SchedulerProps = {
   onItemResize: (data: OnItemResizeProps) => void;
   onRoomClick: (id: string) => void;
   onCommentClick: (data: SchedulerProjectData) => void;
+  onAddSeat: (data: OnAddSeatProps) => void;
   openHistory: () => void;
 };
 

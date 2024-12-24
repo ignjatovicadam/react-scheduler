@@ -6,7 +6,9 @@ import {
   OnItemDropProps,
   SchedulerData,
   SchedulerProjectData,
-  OnItemResizeProps
+  OnItemResizeProps,
+  OnAddSeatProps,
+  SchedulerRowSeats
 } from "./types/global";
 import { StyledSchedulerFrame } from "./styles";
 import { Scheduler } from ".";
@@ -130,6 +132,30 @@ function App() {
     });
   };
 
+  const onAddSeat = (data: OnAddSeatProps) => {
+    setData((prevData) =>
+      prevData.map((room) => {
+        if (room.id === data.room.id) {
+          const newSeat: SchedulerRowSeats = {
+            id: `${room.id}-seat${data.length}`,
+            label: {
+              icon: "https://picsum.photos/24",
+              title: data.length.toString(),
+              subtitle: "New Seat"
+            },
+            data: []
+          };
+
+          return {
+            ...room,
+            seats: [...room.seats, newSeat]
+          };
+        }
+        return room;
+      })
+    );
+  };
+
   return (
     <>
       {isFullscreen ? (
@@ -145,6 +171,7 @@ function App() {
           onItemResize={onItemResize}
           onRoomClick={onRoomClick}
           onCommentClick={onCommentClick}
+          onAddSeat={onAddSeat}
           openHistory={openHistory}
         />
       ) : (
@@ -160,6 +187,7 @@ function App() {
             onItemResize={onItemResize}
             onRoomClick={onRoomClick}
             onCommentClick={onCommentClick}
+            onAddSeat={onAddSeat}
             openHistory={openHistory}
           />
         </StyledSchedulerFrame>

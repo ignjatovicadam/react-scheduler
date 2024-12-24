@@ -3,7 +3,8 @@ import {
   SchedulerItemClickData,
   SchedulerProjectData,
   OnItemDropProps,
-  OnItemResizeProps
+  OnItemResizeProps,
+  OnAddSeatProps
 } from "@/types/global";
 
 export type CalendarProps = {
@@ -16,6 +17,7 @@ export type CalendarProps = {
   onRoomClick: (id: string) => void;
   toggleTheme?: () => void;
   onCommentClick: (data: SchedulerProjectData) => void;
+  onAddSeat: (data: OnAddSeatProps) => void;
   openHistory: () => void;
 };
 

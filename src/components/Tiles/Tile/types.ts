@@ -15,6 +15,9 @@ export type TileProps = {
   onTileClick?: (data: SchedulerProjectData) => void;
   onItemResize: (data: OnItemResizeProps) => void;
   onCommentClick: (data: SchedulerProjectData) => void;
+  isDragging: boolean;
+  onDragStart: () => void;
+  onDragEnd: () => void;
 };
 
 export type StyledTextProps = {

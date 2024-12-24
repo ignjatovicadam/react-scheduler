@@ -18,6 +18,7 @@ export const Calendar: FC<CalendarProps> = ({
   toggleTheme,
   onCommentClick,
   openHistory,
+  onAddSeat,
   topBarWidth
 }) => {
   const [filteredData, setFilteredData] = useState(data);
@@ -75,6 +76,7 @@ export const Calendar: FC<CalendarProps> = ({
         onSearchInputChange={handleSearch}
         onItemClick={onItemClick}
         onRoomClick={onRoomClick}
+        onAddSeat={onAddSeat}
       />
       <StyledInnerWrapper>
         <Header

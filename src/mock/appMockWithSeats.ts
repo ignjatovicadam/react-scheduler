@@ -11,7 +11,7 @@ export const mockDataWithSeats = [
     seats: [
       {
         id: "room-1-seat1",
-        label: { icon: "https://picsum.photos/24", title: "Seat one", subtitle: "Near the board" },
+        label: { icon: "https://picsum.photos/24", title: "1", subtitle: "Near the board" },
         data: [
           {
             id: "project1-room1-seat1",
@@ -27,7 +27,7 @@ export const mockDataWithSeats = [
       },
       {
         id: "room-1-seat2",
-        label: { icon: "https://picsum.photos/24", title: "Seat two", subtitle: "Middle row" },
+        label: { icon: "https://picsum.photos/24", title: "2", subtitle: "Middle row" },
         data: [
           {
             id: "project2-room1-seat2",
@@ -44,7 +44,7 @@ export const mockDataWithSeats = [
       },
       {
         id: "room-1-seat3",
-        label: { icon: "https://picsum.photos/24", title: "Seat tree", subtitle: "Near the board" },
+        label: { icon: "https://picsum.photos/24", title: "3", subtitle: "Near the board" },
         data: []
       }
     ]
@@ -61,12 +61,12 @@ export const mockDataWithSeats = [
     seats: [
       {
         id: "room-2-seat0",
-        label: { icon: "https://picsum.photos/24", title: "Seat 0", subtitle: "Front row" },
+        label: { icon: "https://picsum.photos/24", title: "0", subtitle: "Front row" },
         data: []
       },
       {
         id: "room-2-seat1",
-        label: { icon: "https://picsum.photos/24", title: "Seat one", subtitle: "Front row" },
+        label: { icon: "https://picsum.photos/24", title: "1", subtitle: "Front row" },
         data: [
           {
             id: "project1-room2-seat1",
@@ -83,7 +83,7 @@ export const mockDataWithSeats = [
       },
       {
         id: "room-2-seat2",
-        label: { icon: "https://picsum.photos/24", title: "Seat two", subtitle: "Near windows" },
+        label: { icon: "https://picsum.photos/24", title: "2", subtitle: "Near windows" },
         data: [
           {
             id: "project2-room2-seat2",
@@ -114,7 +114,7 @@ export const mockDataWithSeats = [
         id: "room-3-seat1",
         label: {
           icon: "https://picsum.photos/24",
-          title: "Seat one",
+          title: "1",
           subtitle: "Near the teacher"
         },
         data: [
@@ -156,7 +156,7 @@ export const mockDataWithSeats = [
     seats: [
       {
         id: "room-4-seat1",
-        label: { icon: "https://picsum.photos/24", title: "Seat one", subtitle: "Corner seat" },
+        label: { icon: "https://picsum.photos/24", title: "2", subtitle: "Corner seat" },
         data: [
           {
             id: "project1-room4-seat1",
@@ -185,7 +185,7 @@ export const mockDataWithSeats = [
     seats: [
       {
         id: "room-5-seat1",
-        label: { icon: "https://picsum.photos/24", title: "Seat one", subtitle: "Front row" },
+        label: { icon: "https://picsum.photos/24", title: "1", subtitle: "Front row" },
         data: [
           {
             id: "project1-room5-seat1",
@@ -214,7 +214,7 @@ export const mockDataWithSeats = [
     seats: [
       {
         id: "room-6-seat1",
-        label: { icon: "https://picsum.photos/24", title: "Seat one", subtitle: "Back row" },
+        label: { icon: "https://picsum.photos/24", title: "1", subtitle: "Back row" },
         data: [
           {
             id: "project1-room6-seat1",
@@ -243,7 +243,7 @@ export const mockDataWithSeats = [
     seats: [
       {
         id: "room-7-seat1",
-        label: { icon: "https://picsum.photos/24", title: "Seat one", subtitle: "Near projector" },
+        label: { icon: "https://picsum.photos/24", title: "1", subtitle: "Near projector" },
         data: [
           {
             id: "project1-room7-seat1",
@@ -272,7 +272,7 @@ export const mockDataWithSeats = [
     seats: [
       {
         id: "room-8-seat1",
-        label: { icon: "https://picsum.photos/24", title: "Seat one", subtitle: "Middle row" },
+        label: { icon: "https://picsum.photos/24", title: "1", subtitle: "Middle row" },
         data: [
           {
             id: "project1-room8-seat1",
@@ -301,7 +301,7 @@ export const mockDataWithSeats = [
     seats: [
       {
         id: "room-9-seat1",
-        label: { icon: "https://picsum.photos/24", title: "Seat one", subtitle: "Front row" },
+        label: { icon: "https://picsum.photos/24", title: "1", subtitle: "Front row" },
         data: [
           {
             id: "project1-room9-seat1",
@@ -330,7 +330,7 @@ export const mockDataWithSeats = [
     seats: [
       {
         id: "room-10-seat1",
-        label: { icon: "https://picsum.photos/24", title: "Seat one", subtitle: "Side row" },
+        label: { icon: "https://picsum.photos/24", title: "1", subtitle: "Side row" },
         data: [
           {
             id: "project1-room10-seat1",
