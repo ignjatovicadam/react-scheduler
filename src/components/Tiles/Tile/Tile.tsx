@@ -1,5 +1,4 @@
 import { DragEvent, FC } from "react";
-import { IconArrowsHorizontal, IconMessagePlus } from "@tabler/icons-react";
 import { useTheme } from "styled-components";
 import { useCalendar } from "@/context/CalendarProvider";
 import { getDatesRange } from "@/utils/getDatesRange";
@@ -57,7 +56,7 @@ const Tile: FC<TileProps> = ({
   });
 
   const onDrag = (event: DragEvent<HTMLButtonElement>) => {
-    onDragStart();
+    setTimeout(() => onDragStart(), 0);
 
     const m = {
       id: data.id,
@@ -97,23 +96,24 @@ const Tile: FC<TileProps> = ({
       onDragStart={onDrag}
       onDragEnd={() => onDragEnd()}
       onClick={() => onTileClick?.(data)}>
-      <StyledResizeButton className="left" onMouseDown={(e) => onResize(e, "left")}>
-        <IconArrowsHorizontal size={15} />
-      </StyledResizeButton>
+      <StyledResizeButton
+        className="left"
+        onMouseDown={(e) => onResize(e, "left")}></StyledResizeButton>
       <StyledInnerWrapper>
         <StyledTextWrapper>
-          <StyledText bold>{data.title}</StyledText>
-          {data.dateOfBirth && <StyledText>{data.dateOfBirth}</StyledText>}
-          {data.startDate && <StyledText>{data.startDate}</StyledText>}
-          {data.endDate && <StyledText>{data.endDate}</StyledText>}
-          <StyledCommentButton onClick={onCommentButtonClick}>
-            <IconMessagePlus size={15} />
-          </StyledCommentButton>
+          <StyledText bold>{data.title} |</StyledText>
+          {data.dateOfBirth && <StyledText>{data.dateOfBirth} |</StyledText>}
+          {data.startDate && (
+            <StyledText>
+              {data.startDate} - {data.endDate} |
+            </StyledText>
+          )}
+          <StyledCommentButton onClick={onCommentButtonClick}></StyledCommentButton>
         </StyledTextWrapper>
       </StyledInnerWrapper>
-      <StyledResizeButton className="right" onMouseDown={(e) => onResize(e, "right")}>
-        <IconArrowsHorizontal size={15} />
-      </StyledResizeButton>
+      <StyledResizeButton
+        className="right"
+        onMouseDown={(e) => onResize(e, "right")}></StyledResizeButton>
     </StyledTileWrapper>
   );
 };

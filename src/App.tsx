@@ -8,7 +8,8 @@ import {
   SchedulerProjectData,
   OnItemResizeProps,
   OnAddSeatProps,
-  SchedulerRowSeats
+  SchedulerRowSeats,
+  onRemoveSeatProps
 } from "./types/global";
 import { StyledSchedulerFrame } from "./styles";
 import { Scheduler } from ".";
@@ -137,7 +138,7 @@ function App() {
       prevData.map((room) => {
         if (room.id === data.room.id) {
           const newSeat: SchedulerRowSeats = {
-            id: `${room.id}-seat${data.length}`,
+            id: `${room.id}-seat${data.length + 1}`,
             label: {
               icon: "https://picsum.photos/24",
               title: data.length.toString(),
@@ -156,42 +157,28 @@ function App() {
     );
   };
 
+  const onDeleteSeat = (seat: onRemoveSeatProps) => {
+    console.log(seat);
+  };
+
   return (
     <>
-      {isFullscreen ? (
-        <Scheduler
-          startDate={values.startDate ? new Date(values.startDate).toISOString() : undefined}
-          onRangeChange={handleRangeChange}
-          data={data}
-          isLoading={false}
-          config={{ zoom: 0, maxRecordsPerPage: maxRecordsPerPage, showThemeToggle: false }}
-          themeMode="light"
-          onItemClick={(data) => console.log("clicked: ", data)}
-          onItemDrop={onItemDrop}
-          onItemResize={onItemResize}
-          onRoomClick={onRoomClick}
-          onCommentClick={onCommentClick}
-          onAddSeat={onAddSeat}
-          openHistory={openHistory}
-        />
-      ) : (
-        <StyledSchedulerFrame>
-          <Scheduler
-            startDate={values.startDate ? new Date(values.startDate).toISOString() : undefined}
-            onRangeChange={handleRangeChange}
-            isLoading={false}
-            data={data}
-            themeMode="dark"
-            onItemClick={(data) => console.log("clicked: ", data)}
-            onItemDrop={onItemDrop}
-            onItemResize={onItemResize}
-            onRoomClick={onRoomClick}
-            onCommentClick={onCommentClick}
-            onAddSeat={onAddSeat}
-            openHistory={openHistory}
-          />
-        </StyledSchedulerFrame>
-      )}
+      <Scheduler
+        startDate={values.startDate ? new Date(values.startDate).toISOString() : undefined}
+        onRangeChange={handleRangeChange}
+        data={data}
+        isLoading={false}
+        config={{ zoom: 0, maxRecordsPerPage: maxRecordsPerPage, showThemeToggle: false }}
+        themeMode="light"
+        onItemClick={(data) => console.log("clicked: ", data)}
+        onItemDrop={onItemDrop}
+        onItemResize={onItemResize}
+        onRoomClick={onRoomClick}
+        onCommentClick={onCommentClick}
+        onAddSeat={onAddSeat}
+        onRemoveSeat={onDeleteSeat}
+        openHistory={openHistory}
+      />
     </>
   );
 }

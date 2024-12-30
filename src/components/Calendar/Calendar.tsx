@@ -19,6 +19,7 @@ export const Calendar: FC<CalendarProps> = ({
   onCommentClick,
   openHistory,
   onAddSeat,
+  onRemoveSeat,
   topBarWidth
 }) => {
   const [filteredData, setFilteredData] = useState(data);
@@ -77,6 +78,7 @@ export const Calendar: FC<CalendarProps> = ({
         onItemClick={onItemClick}
         onRoomClick={onRoomClick}
         onAddSeat={onAddSeat}
+        onRemoveSeat={onRemoveSeat}
       />
       <StyledInnerWrapper>
         <Header

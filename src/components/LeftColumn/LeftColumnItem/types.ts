@@ -2,7 +2,8 @@ import {
   SchedulerItemClickData,
   SchedulerRowLabel,
   PaginatedSchedulerRowSeats,
-  OnAddSeatProps
+  OnAddSeatProps,
+  onRemoveSeatProps
 } from "@/types/global";
 
 export type LeftColumnItemProps = {
@@ -14,6 +15,7 @@ export type LeftColumnItemProps = {
   onItemClick?: (data: SchedulerItemClickData) => void;
   onRoomClick: (id: string) => void;
   onAddSeat: (data: OnAddSeatProps) => void;
+  onRemoveSeat: (data: onRemoveSeatProps) => void;
 };
 
 export type StyledTextProps = {

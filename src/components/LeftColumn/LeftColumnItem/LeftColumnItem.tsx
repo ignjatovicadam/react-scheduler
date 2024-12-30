@@ -1,12 +1,13 @@
 import { FC } from "react";
-import { IconChevronDown, IconPlus } from "@tabler/icons-react";
+import { IconChevronDown, IconTrash } from "@tabler/icons-react";
 import {
   StyledText,
   StyledTextWrapper,
   StyledSeatWrapper,
   StyledRoomWrapper,
   StyledWrapper,
-  StyledPlusButton
+  StyledPlusButton,
+  StyledIconContainer
 } from "./styles";
 import { LeftColumnItemProps } from "./types";
 
@@ -17,9 +18,18 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
   seats,
   collapsed,
   onRoomClick,
-  onAddSeat
+  onAddSeat,
+  onRemoveSeat
 }) => {
   const onClick = () => onRoomClick(id);
+
+  const handleRemoveSeat = (seat: string, blocked: boolean) => {
+    if (blocked) return;
+    onRemoveSeat({
+      room: { id: id },
+      seat: { id: seat }
+    });
+  };
 
   return (
     <StyledWrapper rows={rows} clickable={true} className="scheduler-room">
@@ -33,16 +43,24 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
         if (collapsed) return null;
         return (
           <StyledSeatWrapper rows={seat.data.length} key={i} className="scheduler-seat">
-            <span
+            <div
               style={{
-                height: "10px",
-                width: "10px",
-                background: item.bgColor,
-                display: "block"
-              }}></span>
-            <StyledText>{seat.label.title}</StyledText>
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
+              <span
+                style={{
+                  height: "10px",
+                  width: "10px",
+                  background: seat.data[0].length > 0 ? "red" : "green",
+                  display: "block"
+                }}></span>
+            </div>
             {i === seats.length - 1 && (
               <StyledPlusButton
+                className="button-add-new-seat"
                 onClick={() =>
                   onAddSeat({
                     room: {
@@ -52,9 +70,16 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
                     length: seats.length
                   })
                 }>
-                <IconPlus size={15} fill="#122C4F" />
+                Add a seat
               </StyledPlusButton>
             )}
+            <StyledText>{seat.label.title}</StyledText>
+            <StyledIconContainer>
+              <IconTrash
+                size={15}
+                onClick={() => handleRemoveSeat(seat.id, seat.data[0].length > 0)}
+              />
+            </StyledIconContainer>
           </StyledSeatWrapper>
         );
       })}

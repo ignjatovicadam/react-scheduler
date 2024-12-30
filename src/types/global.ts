@@ -275,3 +275,12 @@ export type OnAddSeatProps = {
   };
   length: number;
 };
+
+export type onRemoveSeatProps = {
+  seat: {
+    id: string;
+  };
+  room: {
+    id: string;
+  };
+};

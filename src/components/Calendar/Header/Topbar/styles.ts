@@ -85,3 +85,17 @@ export const OptionsContainer = styled.div`
   align-items: "center";
   gap: 1.25rem;
 `;
+
+export const HistoryButton = styled.div`
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.54);
+
+  &:hover {
+    cursor: pointer;
+  }
+`;

@@ -57,10 +57,7 @@ export const StyledText = styled.p<StyledTextProps>`
   display: inline;
   font-weight: ${({ bold }) => (bold ? "600" : "400")};
   text-transform: uppercase;
-  &::after {
-    content: "|";
-    margin: 0 3px;
-  }
+  margin-right: 3px;
 `;
 
 export const StyledCommentButton = styled.div`

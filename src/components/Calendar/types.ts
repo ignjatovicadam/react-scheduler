@@ -4,7 +4,8 @@ import {
   SchedulerProjectData,
   OnItemDropProps,
   OnItemResizeProps,
-  OnAddSeatProps
+  OnAddSeatProps,
+  onRemoveSeatProps
 } from "@/types/global";
 
 export type CalendarProps = {
@@ -18,6 +19,7 @@ export type CalendarProps = {
   toggleTheme?: () => void;
   onCommentClick: (data: SchedulerProjectData) => void;
   onAddSeat: (data: OnAddSeatProps) => void;
+  onRemoveSeat: (data: onRemoveSeatProps) => void;
   openHistory: () => void;
 };
 

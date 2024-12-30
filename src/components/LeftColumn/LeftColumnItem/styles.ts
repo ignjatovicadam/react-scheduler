@@ -26,6 +26,7 @@ export const StyledRoomWrapper = styled.div<StyledRoomWrapperProps>`
   padding: 0.5rem;
   display: flex;
   align-items: center;
+  color: #ffffff;
   background-color: ${({ bgColor }) => bgColor};
 
   &:hover {
@@ -38,10 +39,11 @@ export const StyledSeatWrapper = styled.div<StyledSeatWrapperProps>`
   height: calc(${boxHeight}px * ${({ rows }) => rows});
   width: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors.border};
-  padding: 0 0 0 0.5rem;
+  padding: 0 0.5rem 0 0.5rem;
   display: flex;
   align-items: center;
   gap: 5px;
+  position: relative;
 `;
 
 export const StyledInnerWrapper = styled.div`
@@ -99,16 +101,32 @@ export const StyledText = styled.p<StyledTextProps>`
 
 export const StyledPlusButton = styled.div`
   position: absolute;
-  bottom: -8px;
-  right: 0.3rem;
-  border-radius: 50%;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
   cursor: pointer;
-  height: 22px;
-  width: 22px;
-  background: #d9d9d9;
   padding: 2px 3px;
+  font-size: 11px;
+  text-decoration: underline;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primary};
+    color: blue;
+  }
+`;
+
+export const StyledIconContainer = styled.div`
+  height: 30px;
+  width: 30px;
+  background: white;
+  color: rgba(0, 0, 0, 0.54);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+
+  &:hover {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
   }
 `;

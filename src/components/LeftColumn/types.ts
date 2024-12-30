@@ -1,4 +1,9 @@
-import { PaginatedSchedulerData, SchedulerItemClickData, OnAddSeatProps } from "@/types/global";
+import {
+  PaginatedSchedulerData,
+  SchedulerItemClickData,
+  OnAddSeatProps,
+  onRemoveSeatProps
+} from "@/types/global";
 
 export type LeftColumnProps = {
   data: PaginatedSchedulerData;
@@ -12,6 +17,7 @@ export type LeftColumnProps = {
   onItemClick?: (data: SchedulerItemClickData) => void;
   onRoomClick: (id: string) => void;
   onAddSeat: (data: OnAddSeatProps) => void;
+  onRemoveSeat: (data: onRemoveSeatProps) => void;
 };
 
 export type StyledInputWrapperProps = {

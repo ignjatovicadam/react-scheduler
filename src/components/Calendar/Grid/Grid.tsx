@@ -87,7 +87,7 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
     <StyledWrapper id={canvasWrapperId} className="container">
       <StyledInnerWrapper ref={ref}>
         <StyledSpan position="left" ref={refLeft} />
-        <Loader isLoading={isLoading} position="left" />
+        <Loader isLoading={true} position="left" />
         <StyledCanvas ref={canvasRef} />
         <DropZones data={data} zoom={zoom} rowsPerItem={rowsPerItem} onItemDrop={onItemDrop} />
         <Tiles
