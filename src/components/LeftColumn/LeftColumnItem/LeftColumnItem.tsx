@@ -73,7 +73,7 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
                 Add a seat
               </StyledPlusButton>
             )}
-            <StyledText>{seat.label.title}</StyledText>
+            <StyledText>{i + 1}</StyledText>
             <StyledIconContainer>
               <IconTrash
                 size={15}
