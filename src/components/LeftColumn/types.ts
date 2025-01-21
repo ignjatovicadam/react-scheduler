@@ -18,6 +18,7 @@ export type LeftColumnProps = {
   onRoomClick: (id: string) => void;
   onAddSeat: (data: OnAddSeatProps) => void;
   onRemoveSeat: (data: onRemoveSeatProps) => void;
+  onBlockedRemoveSeat: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export type StyledInputWrapperProps = {

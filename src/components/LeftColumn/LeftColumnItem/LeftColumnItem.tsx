@@ -19,12 +19,21 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
   collapsed,
   onRoomClick,
   onAddSeat,
-  onRemoveSeat
+  onRemoveSeat,
+  onBlockedRemoveSeat
 }) => {
   const onClick = () => onRoomClick(id);
 
-  const handleRemoveSeat = (seat: string, blocked: boolean) => {
-    if (blocked) return;
+  const handleRemoveSeat = (
+    seat: string,
+    blocked: boolean,
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
+    if (blocked) {
+      onBlockedRemoveSeat(e);
+      return;
+    }
+
     onRemoveSeat({
       room: { id: id },
       seat: { id: seat }
@@ -54,8 +63,14 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
                 style={{
                   height: "10px",
                   width: "10px",
-                  background: seat.data[0].length > 0 ? "red" : "green",
-                  display: "block"
+                  background:
+                    seat.data.length === 1 && seat.data[0].length === 0
+                      ? "green"
+                      : seat.data.length === 1
+                      ? "white"
+                      : "red",
+                  display: "block",
+                  border: "0.5px solid black"
                 }}></span>
             </div>
             {i === seats.length - 1 && (
@@ -74,11 +89,11 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({
               </StyledPlusButton>
             )}
             <StyledText>{i + 1}</StyledText>
-            <StyledIconContainer>
-              <IconTrash
-                size={15}
-                onClick={() => handleRemoveSeat(seat.id, seat.data[0].length > 0)}
-              />
+            <StyledIconContainer
+              onClick={(event: React.MouseEvent<HTMLDivElement>) => {
+                handleRemoveSeat(seat.id, seat.data[0].length > 0, event);
+              }}>
+              <IconTrash size={15} />
             </StyledIconContainer>
           </StyledSeatWrapper>
         );

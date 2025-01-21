@@ -27,6 +27,7 @@ const Scheduler = ({
   openHistory,
   onAddSeat,
   onRemoveSeat,
+  onBlockedRemoveSeat,
   isLoading
 }: SchedulerProps) => {
   const appConfig: Config = useMemo(
@@ -100,6 +101,7 @@ const Scheduler = ({
                   onAddSeat={onAddSeat}
                   onRemoveSeat={onRemoveSeat}
                   openHistory={openHistory}
+                  onBlockedRemoveSeat={onBlockedRemoveSeat}
                 />
               </StyledInnerWrapper>
             </StyledOutsideWrapper>

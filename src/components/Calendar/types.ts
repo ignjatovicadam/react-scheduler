@@ -21,6 +21,7 @@ export type CalendarProps = {
   onAddSeat: (data: OnAddSeatProps) => void;
   onRemoveSeat: (data: onRemoveSeatProps) => void;
   openHistory: () => void;
+  onBlockedRemoveSeat: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export type StyledSpanProps = {

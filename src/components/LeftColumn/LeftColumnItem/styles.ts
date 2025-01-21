@@ -4,7 +4,8 @@ import {
   StyledLeftColumnItemWrapperProps,
   StyledTextProps,
   StyledSeatWrapperProps,
-  StyledRoomWrapperProps
+  StyledRoomWrapperProps,
+  StyledIconWrapperProps
 } from "./types";
 
 export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
@@ -16,7 +17,6 @@ export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
   width: 100%;
   min-height: ${boxHeight}px;
   height: calc(${boxHeight}px * ${({ rows }) => rows});
-  transition: height 0.6s ease-in-out;
 `;
 
 export const StyledRoomWrapper = styled.div<StyledRoomWrapperProps>`
@@ -114,7 +114,7 @@ export const StyledPlusButton = styled.div`
   }
 `;
 
-export const StyledIconContainer = styled.div`
+export const StyledIconContainer = styled.div<StyledIconWrapperProps>`
   height: 30px;
   width: 30px;
   background: white;
