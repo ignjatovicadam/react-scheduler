@@ -29,6 +29,7 @@ export type SchedulerProps = {
   onRemoveSeat: (data: onRemoveSeatProps) => void;
   openHistory: () => void;
   onBlockedRemoveSeat: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onSync?: () => void;
 };
 
 export type StyledOutsideWrapperProps = {

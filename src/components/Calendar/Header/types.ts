@@ -4,4 +4,5 @@ export type HeaderProps = {
   showThemeToggle?: boolean;
   toggleTheme?: () => void;
   openHistory: () => void;
+  onSync?: () => void;
 };

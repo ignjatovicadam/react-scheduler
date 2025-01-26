@@ -22,6 +22,7 @@ export type CalendarProps = {
   onRemoveSeat: (data: onRemoveSeatProps) => void;
   openHistory: () => void;
   onBlockedRemoveSeat: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onSync?: () => void;
 };
 
 export type StyledSpanProps = {

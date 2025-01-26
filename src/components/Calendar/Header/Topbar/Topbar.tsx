@@ -1,6 +1,6 @@
 import { useTheme } from "styled-components";
 import { FC } from "react";
-import { IconHistory } from "@tabler/icons-react";
+import { IconHistory, IconRefresh } from "@tabler/icons-react";
 import { Icon, IconButton } from "@/components";
 import { useCalendar } from "@/context/CalendarProvider";
 import { useLanguage } from "@/context/LocaleProvider";
@@ -15,7 +15,7 @@ import {
 } from "./styles";
 import { TopbarProps } from "./types";
 
-const Topbar: FC<TopbarProps> = ({ width, showThemeToggle, toggleTheme, openHistory }) => {
+const Topbar: FC<TopbarProps> = ({ width, showThemeToggle, toggleTheme, openHistory, onSync }) => {
   const { topbar } = useLanguage();
   const {
     data,
@@ -43,6 +43,9 @@ const Topbar: FC<TopbarProps> = ({ width, showThemeToggle, toggleTheme, openHist
       <OptionsContainer>
         <HistoryButton>
           <IconHistory size={25} onClick={openHistory} />
+        </HistoryButton>
+        <HistoryButton>
+          <IconRefresh size={25} onClick={onSync} />
         </HistoryButton>
         <Zoom>
           <IconButton

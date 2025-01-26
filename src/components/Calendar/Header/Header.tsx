@@ -15,7 +15,8 @@ const Header: FC<HeaderProps> = ({
   topBarWidth,
   showThemeToggle,
   toggleTheme,
-  openHistory
+  openHistory,
+  onSync
 }) => {
   const { week } = useLanguage();
   const { date, cols, dayOfYear, startDate } = useCalendar();
@@ -62,6 +63,7 @@ const Header: FC<HeaderProps> = ({
         showThemeToggle={showThemeToggle}
         toggleTheme={toggleTheme}
         openHistory={openHistory}
+        onSync={onSync}
       />
       <StyledWrapper id={canvasHeaderWrapperId}>
         <StyledCanvas ref={canvasRef} />

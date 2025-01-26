@@ -165,6 +165,10 @@ function App() {
     console.log(event);
   };
 
+  const sync = () => {
+    console.log("sync");
+  };
+
   return (
     <>
       <Scheduler
@@ -183,6 +187,7 @@ function App() {
         onRemoveSeat={onDeleteSeat}
         openHistory={openHistory}
         onBlockedRemoveSeat={onBlockedRemoveSeat}
+        onSync={sync}
       />
     </>
   );

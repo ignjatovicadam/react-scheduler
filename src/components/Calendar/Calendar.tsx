@@ -21,6 +21,7 @@ export const Calendar: FC<CalendarProps> = ({
   onAddSeat,
   onRemoveSeat,
   onBlockedRemoveSeat,
+  onSync,
   topBarWidth
 }) => {
   const [filteredData, setFilteredData] = useState(data);
@@ -89,6 +90,7 @@ export const Calendar: FC<CalendarProps> = ({
           showThemeToggle={showThemeToggle}
           toggleTheme={toggleTheme}
           openHistory={openHistory}
+          onSync={onSync}
         />
         {data.length ? (
           <Grid
