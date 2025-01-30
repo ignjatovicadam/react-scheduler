@@ -15,7 +15,8 @@ const LeftColumn: FC<LeftColumnProps> = ({
   onItemClick,
   onRoomClick,
   onAddSeat,
-  onRemoveSeat
+  onRemoveSeat,
+  onBlockedRemoveSeat
 }) => {
   return (
     <StyledWrapper>
@@ -44,6 +45,7 @@ const LeftColumn: FC<LeftColumnProps> = ({
           onRoomClick={onRoomClick}
           onAddSeat={onAddSeat}
           onRemoveSeat={onRemoveSeat}
+          onBlockedRemoveSeat={onBlockedRemoveSeat}
         />
       ))}
       <PaginationButton

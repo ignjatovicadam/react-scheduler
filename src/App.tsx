@@ -161,6 +161,14 @@ function App() {
     console.log(seat);
   };
 
+  const onBlockedRemoveSeat = (event: React.MouseEvent<HTMLDivElement>) => {
+    console.log(event);
+  };
+
+  const sync = () => {
+    console.log("sync");
+  };
+
   return (
     <>
       <Scheduler
@@ -178,6 +186,8 @@ function App() {
         onAddSeat={onAddSeat}
         onRemoveSeat={onDeleteSeat}
         openHistory={openHistory}
+        onBlockedRemoveSeat={onBlockedRemoveSeat}
+        onSync={sync}
       />
     </>
   );

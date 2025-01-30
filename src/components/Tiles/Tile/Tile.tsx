@@ -1,4 +1,10 @@
 import { DragEvent, FC } from "react";
+import {
+  IconArrowsHorizontal,
+  IconMessagePlus,
+  IconUserFilled,
+  IconCalendar
+} from "@tabler/icons-react";
 import { useTheme } from "styled-components";
 import { useCalendar } from "@/context/CalendarProvider";
 import { getDatesRange } from "@/utils/getDatesRange";
@@ -96,24 +102,28 @@ const Tile: FC<TileProps> = ({
       onDragStart={onDrag}
       onDragEnd={() => onDragEnd()}
       onClick={() => onTileClick?.(data)}>
-      <StyledResizeButton
-        className="left"
-        onMouseDown={(e) => onResize(e, "left")}></StyledResizeButton>
+      <StyledResizeButton className="left" onMouseDown={(e) => onResize(e, "left")}>
+        <IconArrowsHorizontal size={15} />
+      </StyledResizeButton>
       <StyledInnerWrapper>
         <StyledTextWrapper>
           <StyledText bold>{data.title} |</StyledText>
+          <IconUserFilled size={15} />
           {data.dateOfBirth && <StyledText>{data.dateOfBirth} |</StyledText>}
           {data.startDate && (
-            <StyledText>
-              {data.startDate} - {data.endDate} |
-            </StyledText>
+            <>
+              <IconCalendar size={15} />
+              <StyledText>
+                {data.startDate} - {data.endDate} |
+              </StyledText>
+              <IconMessagePlus size={15} onClick={onCommentButtonClick} />
+            </>
           )}
-          <StyledCommentButton onClick={onCommentButtonClick}></StyledCommentButton>
         </StyledTextWrapper>
       </StyledInnerWrapper>
-      <StyledResizeButton
-        className="right"
-        onMouseDown={(e) => onResize(e, "right")}></StyledResizeButton>
+      <StyledResizeButton className="right" onMouseDown={(e) => onResize(e, "right")}>
+        <IconArrowsHorizontal size={15} />
+      </StyledResizeButton>
     </StyledTileWrapper>
   );
 };

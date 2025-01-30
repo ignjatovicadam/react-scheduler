@@ -16,6 +16,7 @@ export type LeftColumnItemProps = {
   onRoomClick: (id: string) => void;
   onAddSeat: (data: OnAddSeatProps) => void;
   onRemoveSeat: (data: onRemoveSeatProps) => void;
+  onBlockedRemoveSeat: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export type StyledTextProps = {
@@ -33,4 +34,8 @@ export type StyledRoomWrapperProps = {
 
 export type StyledSeatWrapperProps = {
   rows: number;
+};
+
+export type StyledIconWrapperProps = {
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
 };

@@ -3,4 +3,5 @@ export type TopbarProps = {
   showThemeToggle?: boolean;
   toggleTheme?: () => void;
   openHistory?: () => void;
+  onSync?: () => void;
 };

@@ -83,7 +83,7 @@ export const Filters = styled.div`
 export const OptionsContainer = styled.div`
   display: flex;
   align-items: "center";
-  gap: 1.25rem;
+  gap: 10px;
 `;
 
 export const HistoryButton = styled.div`

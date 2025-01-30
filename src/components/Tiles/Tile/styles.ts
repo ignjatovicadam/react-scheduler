@@ -65,7 +65,6 @@ export const StyledCommentButton = styled.div`
   ${truncate}
   background: none;
   border: none;
-  font-size: 10px;
   color: white;
   cursor: pointer;
   padding: 0;
