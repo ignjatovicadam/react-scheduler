@@ -3,7 +3,7 @@ import { canvasWrapperId } from "@/constants";
 import { Theme } from "@/styles";
 import { drawMonthlyView } from "./drawMonthlyView";
 import { drawYearlyView } from "./drawYearlyView";
-import { drawHourlyView } from "./drawHourlyView";
+import { drawYearlyExtendedView } from "./drawYearlyExtendedView";
 
 export const drawGrid = (
   ctx: CanvasRenderingContext2D,
@@ -19,13 +19,13 @@ export const drawGrid = (
 
   switch (zoom) {
     case 0:
-      drawYearlyView(ctx, rows, cols, parsedStartDate, theme);
+      drawYearlyExtendedView(ctx, rows, cols, parsedStartDate, theme);
       break;
     case 1:
-      drawMonthlyView(ctx, rows, cols, parsedStartDate, theme);
+      drawYearlyView(ctx, rows, cols, parsedStartDate, theme);
       break;
     case 2:
-      drawHourlyView(ctx, rows, cols, parsedStartDate, theme);
+      drawMonthlyView(ctx, rows, cols, parsedStartDate, theme);
       break;
   }
 };

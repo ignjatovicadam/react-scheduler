@@ -6,7 +6,8 @@ import {
   headerHeight,
   headerMonthHeight,
   headerWeekHeight,
-  weekWidth
+  weekWidth,
+  weekWidthExtended
 } from "@/constants";
 import { Theme } from "@/styles";
 import { getBoxFillStyle } from "@/utils/getBoxFillStyle";
@@ -18,8 +19,10 @@ export const drawWeeksOnBottom = (
   cols: number,
   startDate: Day,
   weekLabel: string,
-  theme: Theme
+  theme: Theme,
+  isExtended: boolean
 ) => {
+  const weekW = isExtended ? weekWidthExtended : weekWidth;
   const dayNameYPos = headerHeight - headerDayHeight / 1.6;
   const dayNumYPos = headerHeight - headerDayHeight / 4.5;
   const yPos = headerMonthHeight + headerWeekHeight;
@@ -37,7 +40,7 @@ export const drawWeeksOnBottom = (
         ctx,
         x: xPos,
         y: yPos,
-        width: weekWidth,
+        width: weekW,
         height: headerDayHeight,
         isBottomRow: true,
         fillStyle: getBoxFillStyle({ isCurrent: isCurrWeek, variant: "yearView" }, theme),
@@ -57,6 +60,6 @@ export const drawWeeksOnBottom = (
       theme
     );
 
-    xPos += weekWidth;
+    xPos += weekW;
   }
 };

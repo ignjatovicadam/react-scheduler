@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { singleDayWidth, weekWidth } from "@/constants";
+import { singleDayWidth, weekWidth, weekWidthExtended } from "@/constants";
 import { getCalendarDate } from "../utils/getCalendarDate";
 import { useResizeProps } from "./types";
 
@@ -108,17 +108,32 @@ export const useResize = ({
   };
 
   const resizeRight = (e: MouseEvent) => {
-    const width = Math.max(
-      tileWidth + e.clientX - startClientPositionX.current,
-      zoom === 0 ? weekWidth : singleDayWidth
-    );
+    let s = 0;
+    if (zoom === 0) {
+      s = weekWidthExtended;
+    } else if (zoom === 1) {
+      s = weekWidth;
+    } else if (zoom === 2) {
+      s = singleDayWidth;
+    }
+
+    const width = Math.max(tileWidth + e.clientX - startClientPositionX.current, s);
     currentTileWidth.current = width;
   };
 
   const resizeLeft = (e: MouseEvent) => {
+    let s = 0;
+    if (zoom === 0) {
+      s = weekWidthExtended;
+    } else if (zoom === 1) {
+      s = weekWidth;
+    } else if (zoom === 2) {
+      s = singleDayWidth;
+    }
+
     const delta = startClientPositionX.current - e.clientX;
     currentTileLeftProp.current = tilePositionX - delta;
-    currentTileWidth.current = Math.max(tileWidth + delta, zoom === 0 ? weekWidth : singleDayWidth);
+    currentTileWidth.current = Math.max(tileWidth + delta, s);
   };
 
   useEffect(() => {

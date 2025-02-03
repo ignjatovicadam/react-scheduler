@@ -27,7 +27,7 @@ const Header: FC<HeaderProps> = ({
   const handleResize = useCallback(
     (ctx: CanvasRenderingContext2D) => {
       const width = getCanvasWidth();
-      const currentHeaderHeight = zoom === 2 ? zoom2HeaderHeight : headerHeight;
+      const currentHeaderHeight = headerHeight;
       const height = currentHeaderHeight + 1;
       resizeCanvas(ctx, width, height);
 
