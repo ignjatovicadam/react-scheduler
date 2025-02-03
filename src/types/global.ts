@@ -1,7 +1,7 @@
 import { LocaleType } from "@/context/LocaleProvider/types";
 import { ColorType } from "@/styles";
 
-export const allZoomLevel = [0, 1] as const;
+export const allZoomLevel = [0, 1, 2] as const;
 
 export type FilterButtonState = -1 | 0 | 1;
 

@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { weekWidth, dayWidth } from "@/constants";
+import { weekWidth, dayWidth, weekWidthExtended } from "@/constants";
 import { Day, ZoomLevel } from "@/types/global";
 
 export const getFocusedDate = (
@@ -15,9 +15,13 @@ export const getFocusedDate = (
   switch (zoom) {
     case 0:
       timeUnit = "weeks";
-      currBoxWidth = weekWidth;
+      currBoxWidth = weekWidthExtended;
       break;
     case 1:
+      timeUnit = "weeks";
+      currBoxWidth = weekWidth;
+      break;
+    case 2:
       timeUnit = "days";
       currBoxWidth = dayWidth;
       break;
